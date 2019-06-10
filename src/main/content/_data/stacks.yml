@@ -1,0 +1,26 @@
+- name: "Java Microprofile"
+  link: https://microprofile.io/
+  img_color: /img/logos/100x100/microprofle.png
+  img_black: /img/logos/100x100/microprofle_black.png
+  css_class: "microProfileImg"
+  
+- name: "Spring"
+  link: https://spring.io/
+  img_color: /img/logos/100x100/spring.png
+  img_black: /img/logos/100x100/spring_black.png
+  css_class: "springImg"
+
+- name: "NodeJS"
+  link: https://nodejs.org
+  img_color: /img/logos/100x100/nodejs.png
+  img_black: /img/logos/100x100/nodejs_black.png
+  css_class: "nodeImg"
+
+- name: "Swift"
+  link: https://swift.org/
+  
+- name: "Serverless"
+  link: https://www.ibm.com/cloud/functions
+  img_color: /img/logos/100x100/serverless.png
+  img_black: /img/logos/100x100/serverless_black.png
+  css_class: "serverlessImg"

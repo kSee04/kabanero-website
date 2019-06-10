@@ -118,10 +118,10 @@ permalink: /catalog/
                     <div class="card col-md-2 catalogTile {{stack.css_class}}" onclick="location.href='{{stack.link}}'" data-color-photo="{{stack.img_color}}" data-bw-photo="{{stack.img_black}}">
                         <div class="card-body">
                             <div class="row">
-                                <a href="{{stack.link}}"><h5 class="card-title stackTitle">{{ stack.name }}</h5></a>
+                                <img class="img-fluid" src="{{stack.img_black}}">
                             </div>
                             <div class="row">
-                                <img class="img-fluid" src="{{stack.img_black}}">
+                                <a href="{{stack.link}}"><h5 class="card-title stackTitle">{{ stack.name }}</h5></a>
                             </div>
                         </div>
                     </div>
