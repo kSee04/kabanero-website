@@ -117,10 +117,10 @@ permalink: /catalog/
                 {% for stack in site.data.stacks %}
                     <div class="card col-md-2 catalogTile {{stack.css_class}}" onclick="location.href='{{stack.link}}'" data-color-photo="{{stack.img_color}}" data-bw-photo="{{stack.img_black}}">
                         <div class="card-body">
-                            <div class="row">
+                            <div class="row inlineRow">
                                 <img class="img-fluid" src="{{stack.img_black}}">
-                            </div>
-                            <div class="row">
+                            </div><br>
+                            <div class="row inlineRow">
                                 <a href="{{stack.link}}"><h5 class="card-title stackTitle">{{ stack.name }}</h5></a>
                             </div>
                         </div>
