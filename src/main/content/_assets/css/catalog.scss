@@ -1,0 +1,35 @@
+.catalogContainer{
+    margin-top: 50px;
+}
+
+.catalogTile{
+    margin: 10px;
+
+    &:hover{
+        background-color:#f3f5f7;
+        transition: background-color .2s;
+    }
+}
+
+
+.container{
+    @media (min-width:1500px){
+        max-width:1350px;
+    }
+
+    @media (min-width:2000px){
+        max-width: 1750px;
+    }
+
+    @media (min-width:2500px){
+        max-width: 1900px;
+    }
+}
+
+
+.stackTitle{
+    color:#000000;
+    &:hover{
+        color:#000000;
+    }
+}
