@@ -53,7 +53,7 @@ This section describes the steps needed to set up your local development environ
 - Go to http://localhost:4000/
 
 ## (Optional) Run site in Docker container
-1. Run `./scripts/build_jekyll_maven.sh` which will create a target directory at root with the war and a default server under `target/liberty/wlp/usr/servers`
+1. Run `./scripts/build_jekyll_maven.sh` which creates a target directory at root with the war and a default server under `target/liberty/wlp/usr/servers`
 1. Run `kube/build-deploy-image.sh` this will create the Docker image on your computer
 1. Run `docker run -d --rm -p 9443:9443 --name kabanero kabanero-site:latest`
     1. The image name by default is `kabanero-site:latest`, but if you changed the name you will need to replace it with the command above
