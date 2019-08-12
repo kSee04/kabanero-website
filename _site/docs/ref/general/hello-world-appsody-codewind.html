@@ -1,0 +1,100 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="general_title"> Appsody Hello World on Codewind
+    </div>
+
+    <!-- General reference content section -->
+    <div class="sect1">
+<h2 id="prerequisites">Prerequisites</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://www.eclipse.org/codewind/installlocally.html">Codewind</a> on Visual Studio Code or Eclipse</p>
+</li>
+<li>
+<p><a href="https://appsody.dev/docs/getting-started/installation">Appsody</a></p>
+</li>
+<li>
+<p><a href="https://github.com/kabanero-io/appsodyExtension">Appsody Extension for Codewind</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getting-started-with-vs-code">Getting started with VS Code</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="creating-a-java-microprofile-appsody-project">Creating a Java MicroProfile appsody Project</h3>
+<div class="paragraph">
+<p>In VS Code open the command palette and navigate to the option <code>Codewind: Create New Project</code>.
+Select the Appsody Java MicroProfile template, give it a name and press enter. Navigate to the <code>Explorer</code> view.
+In the <code>Explorer</code> view keep expanding the Codewind section until the project you created is visible.
+At this point you can click the box with arrow icon next to the project to open it up in a browser, or the information icon to view the project overview.</p>
+</div>
+<div class="paragraph">
+<p>The base url that you will be directed to doesn&#8217;t have any information yet. However appending <code>/health</code> will display the health of the container.
+Other built in endpoints are described on the bottom of the <a href="https://github.com/appsody/stacks/blob/master/incubator/java-microprofile/README.md">application stack&#8217;s README</a></p>
+</div>
+<div class="paragraph">
+<p><strong>NOTE:</strong> The project might still be <code>starting</code> and you&#8217;ll need to wait for it to be running.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getting-started-with-eclispe">Getting started with Eclispe</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="creating-a-java-microprofile-appsody-project-2">Creating a Java MicroProfile appsody Project</h3>
+<div class="paragraph">
+<p>Open up the Codwind Explorer in your Eclipse workspace by clicking <code>Window &#8594; Show View &#8594; Other&#8230;&#8203; &#8594; Codewind &#8594; Codewind Explorer</code>.
+Right click on the <code>Local Projects</code> under <code>Codewind</code> and select <code>New Project</code>. Select the Appsody Java MicroProfile template, give it a name and create it.
+Now underneath your <code>Codewind &#8594; Local Projects</code>, there should be your project.
+You can right click on the project and "Open Application" to view your app in your browser.</p>
+</div>
+<div class="paragraph">
+<p>The base url that you will be directed to doesn&#8217;t have any information yet. However appending <code>/health</code> will display the health of the container.
+Other built in endpoints are described on the bottom of the <a href="https://github.com/appsody/stacks/blob/master/incubator/java-microprofile/README.md">application stack&#8217;s README</a></p>
+</div>
+<div class="paragraph">
+<p><strong>NOTE:</strong> The project might still be <code>starting</code> and you&#8217;ll need to wait for it to be running. Also you might need to refresh the project explorer to see the contents of your project directory.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="hello-world">Hello World</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="create-the-index-html">Create the index.html</h3>
+<div class="paragraph">
+<p>Right-click on the appsody project and chose the option to <code>Open Folder as Workspace</code>. In the project workspace, navigate to <code>src/main/webapp/</code> and create a new file there called <code>index.html</code>.
+Open the file and add <code>Hello World</code>. Save the file and click the icon to open the app in your web browser again. You should see a webpage with <code>Hello World</code>. Now you can go back to the file and change it, save it, and then refresh the webpage.
+The webpage will now be displaying your change.</p>
+</div>
+<div class="paragraph">
+<p>While this is only a basic Hello World html file, this same process goes for any changes in the project you want to make.</p>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,567 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Web Container Application Security (webAppSecurity) - Kabanero</title>
+  <meta name="description" content="Kabanero delivers new and existing middleware tools to modernize your cloud journey.">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="/assets/kabanero-a4350547c807887014f601d43ac1e4df6b92a8bb767a1c44f74e50a098f13cfb.css">
+  <link rel="stylesheet" type="text/css" href="/assets/coderay-custom-2064fdd73da35b0a6084122db82d0f16112fecbaf174cf845382a2a8b1e3ffd1.css">
+
+  
+    <link rel="stylesheet" type="text/css" href="/assets/config-ac2e888d300b0048a22e2f5f7ee2fba18655911ca96524982824431dc4b8167c.css">
+  
+    <link rel="stylesheet" type="text/css" href="/assets/overview-74b72abf74e4e8dbc8fac28662c692f50d0376cda92760575bab2b0957d0377d.css">
+  
+
+  
+
+  
+
+  <link rel="canonical" href="https://kabanero.io/docs/ref/config/webAppSecurity.html">
+  <link rel="alternate" type="application/rss+xml" title="Kabanero" href="/feed.xml">
+  <link href="https://fonts.googleapis.com/css?family=Asap:400,500" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="KabaneroIO" />
+  <meta name="twitter:title" content="Kabanero" />
+  <meta name="twitter:description" content="Kabanero delivers new and existing middleware tools to modernize your cloud journey." />
+  <meta name="twitter:image" content="https://kabanero.io/img/Kabanero_Logo_Colored.png" />
+
+  <meta name="google-site-verification" content="yI8NT1dwfSQj6BTL4sPakqn0rI8aBu1GCdxMZFh1aic" />
+
+</head>
+
+
+  <body>
+    
+    
+
+    <main aria-label="Content">
+
+      <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<div id="content">
+    <div id="config_title"> Web Container Application Security (webAppSecurity)
+    </div>
+
+    <!-- Config content section -->
+    <div class="paragraph">
+<p>Configures web container application security.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>allowAuthenticationFailOverToAuthMethod</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>APP_DEFINED</p>
+</li>
+<li>
+<p>BASIC</p>
+</li>
+<li>
+<p>FORM</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies the authentication fail over method that will be used when the certificate authentication fails or if the certificate is missing. Valid values are BASIC, FORM and APP_DEFINED. APP_DEFINED is only valid when overrideHttpAuthMethod attribute is set to CLIENT_CERT. When APP_DEFINED is set, the authentication method which is  configured in the application is used.<br>
+<strong>APP_DEFINED</strong><br>
+%allowAuthenticationFailOverToAuthMethod.APP_DEFINED<br>
+<strong>BASIC</strong><br>
+%allowAuthenticationFailOverToAuthMethod.BASIC<br>
+<strong>FORM</strong><br>
+%allowAuthenticationFailOverToAuthMethod.FORM</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>allowFailOverToBasicAuth</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether to fail over to basic authentication when certificate authentication fails. The equivalent custom property in the full application server profile is com.ibm.wsspi.security.web.failOverToBasicAuth.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>allowLogoutPageRedirectToAnyHost</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Warning, security risk: Setting this property to true may open your systems to potential URL redirect attacks. If set to true, any host can be specified for the logout page redirect. If set to false, and the logout page points to a different host, or one not listed in the logout page redirect domain list, then a generic logout page is displayed. The equivalent custom property in the full application server profile is com.ibm.websphere.security.allowAnyLogoutExitPageHost.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>basicAuthenticationMechanismRealmName</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>defaultRealm</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies a realm name for the Java EE 8 Security HTTP basic authentication. This value is applicable when overrideHttpAuthMethod is set to BASIC, or if overrideHttpAuthMethod is set to CLIENT_CERT and allowAuthenticationFailOverToAuthMethod is set to BASIC. The default value is defaultRealm.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>contextRootForFormAuthenticationMechanism</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies the context root of a form login page, which is specified by the loginFormURL property. If this value is not set, the first path element of the loginFormURL property is used as a context root. This value is applicable when overrideHttpAuthMethod is set to FORM, or if overrideHttpAuthMethodis is set to CLIENT_CERT and allowAuthenticationFailOverToAuthMethod is set to FORM.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>displayAuthenticationRealm</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Warning, security risk: if this property is set to true, and the user registry's realm name contains sensitive information, it is displayed to the user. For example, if an LDAP configuration is used, the LDAP server hostname and port are displayed. This configuration controls what the HTTP basic authentication login window displays when the realm name is not defined in the application web.xml. If the realm name is defined in the application web.xml file, this property is ignored. If set to true, the realm name displayed will be the user registry realm name for the LTPA authentication mechanism. If set to false, the realm name displayed will be "Default Realm". The equivalent custom property in the full application server profile is com.ibm.websphere.security.displayRealm.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>httpOnlyCookies</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>true</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether the HTTP only (HttpOnly) cookies option is enabled.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>includePathInWASReqURL</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Setting the Path parameter can allow the client/browser to manage multiple WASReqURL cookies during multiple concurrent logins on the same user agent. The equivalent custom property in the full application server profile is com.ibm.websphere.security.setContextRootForFormLogin.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>loginErrorURL</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies the global URL of a form login error page that includes the root context. The form login error page must be part of a WAR file. An application uses the global login error URL if the application uses form login authentication and does not specify either the form login page or the login error page in the auth-method element of the web.xml file. This is required when overrideHttpAuthMethod attribute is set to FORM.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>loginFormURL</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies the global URL of a form login page including the root context. The form login page must be part of the WAR file. If a form login application does not specify the form login page in the web.xml file, it uses the global form login URL. This is required when overrideHttpAuthMethod attribute is set to FORM.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>logoutOnHttpSessionExpire</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether users will be logged out after the HTTP session timer expires. If set to false, the user credential will stay active until the Single Sign-On token timeout occurs. The equivalent custom property in the full application server profile is com.ibm.ws.security.web.logoutOnHTTPSessionExpire.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>logoutPageRedirectDomainNames</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A pipe (|) separated list of domain names that are allowed for the logout page redirect (localhost is implied). The equivalent custom property in the full application server profile is com.ibm.websphere.security.logoutExitPageDomainList.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>overrideHttpAuthMethod</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>BASIC</p>
+</li>
+<li>
+<p>CLIENT_CERT</p>
+</li>
+<li>
+<p>FORM</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies the authentication method to be used for all applications. This specified value overrides any application defined authentication method. The acceptable value is BASIC, FORM or CLIENT_CERT. When FORM is used, loginFormURL and loginErrorURL attributes are required to be set.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>postParamCookieSize</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>int</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>16384</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Size of the POST parameter cookie. If the size of the cookie is larger than the browser limit, unexpected behavior may occur. The value of this property must be a positive integer and represents the maximum size of the cookie in bytes. The equivalent custom property in the full application server profile is com.ibm.websphere.security.util.postParamMaxCookieSize.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>postParamSaveMethod</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Cookie</p>
+</li>
+<li>
+<p>None</p>
+</li>
+<li>
+<p>Session</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Cookie</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies where POST parameters are stored upon redirect. Valid values are cookie (POST parameters are stored in a cookie), session (POST parameters are stored in the HTTP Session) and none (POST parameters are not preserved). The equivalent custom property in the full application server profile is com.ibm.websphere.security.util.postParamSaveMethod.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>preserveFullyQualifiedReferrerUrl</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Warning, security risk: Setting this to true may open your systems to potential URL redirect attacks. This property specifies whether the fully qualified referrer URL for form login redirects is preserved. If false, the host for the referrer URL is removed and the redirect is to localhost. The equivalent custom property in the full application server profile is com.ibm.websphere.security.util.fullyQualifiedURL</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>singleSignonEnabled</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>true</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether single sign-on is enabled.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ssoCookieName</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>LtpaToken2</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Customizes the SSO cookie name. A custom cookie name allows you to logically separate authentication between SSO domains and to enable customized authentication to a particular environment. Before setting this value, consider that setting a custom cookie name can cause an authentication failure. For example, a connection to a server that has a custom cookie property set sends this custom cookie to the browser. A subsequent connection to a server that uses either the default cookie name or a different cookie name, is not able to authenticate the request via a validation of the in-bound cookie. The equivalent custom property in the full application server profile is com.ibm.websphere.security.customSSOCookieName.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ssoDomainNames</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A pipe (|) separated list of domain names that SSO Cookies should be presented. The equivalent custom property in the full application server profile is com.ibm.ws.security.config.SingleSignonConfig</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ssoRequiresSSL</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether a SSO cookie is sent over SSL. The equivalent property in the full application server profile is requiresSSL.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ssoUseDomainFromURL</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether to use the domain name from the request URL for the cookie domain.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>trackLoggedOutSSOCookies</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether to track LTPA single signon tokens that are logged out on a server so that it can not be reused on the same server.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>useAuthenticationDataForUnprotectedResource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>true</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether authentication data can be used when accessing an unprotected resource. The unprotected resource can access validated authenticated data that it previously could not access. This option enables the unprotected resource to call the getRemoteUser, isUserInRole, and getUserPrincipal methods to retrieve an authenticated identity. The equivalent custom property in the full application server profile is com.ibm.wsspi.security.web.webAuthReq=persisting.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>useLtpaSSOForJaspic</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Enables the single sign-on behavior using the LTPA token for a JASPIC authentication. After the initial authentication is performed by the JASPIC provider, the LTPA cookie is created and used for subsequent logins to achieve the single-sign on behavior. The JASPIC provider is not called until the token expires. The JASPIC authentication applies when an external provider is used and also when the application uses the Java EE Security API annotations. The single sign-on behavior can also be achieved by enabling the JASPIC session cookie or the application provided RememberMeIdentityStore bean for a JASPIC authentication. In this case, set the useLtpaSSOForJaspic attribute to false.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>useOnlyCustomCookieName</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether to use only the custom cookie name.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>wasReqURLRedirectDomainNames</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A pipe (|) separated list of domain names that are allowed for the WASReqURL page redirect. The hostname found on the form login request is implied.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>webAlwaysLogin</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies whether the login() method will throw an exception when an identity has already been authenticated.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+    </main>
+
+    <!-- Cookie preference button -->
+    <div id="teconsent" style="display: none"></div>
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+  </body>
+
+</html>

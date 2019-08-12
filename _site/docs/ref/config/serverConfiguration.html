@@ -1,0 +1,783 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Server configuration overview - Kabanero</title>
+  <meta name="description" content="Kabanero delivers new and existing middleware tools to modernize your cloud journey.">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="/assets/kabanero-a0c7ce816709f8f1f869c5f3e20ea18be786a38939ceb1f0e3b6bb4cbbce2caa.css">
+  <link rel="stylesheet" type="text/css" href="/assets/coderay-custom-2064fdd73da35b0a6084122db82d0f16112fecbaf174cf845382a2a8b1e3ffd1.css">
+
+  
+    <link rel="stylesheet" type="text/css" href="/assets/config-bbc934c3ca52fd848389a7660816c87cedaa7e64a90a0a2c24000f724b6ee354.css">
+  
+    <link rel="stylesheet" type="text/css" href="/assets/overview-d26624a73577bfc465289de7d286e1d21d45db250d740024585ab50ec6d9d0b8.css">
+  
+
+  
+
+  
+
+  <link rel="canonical" href="http://0.0.0.0:4000/docs/ref/config/serverConfiguration.html">
+  <link rel="alternate" type="application/rss+xml" title="Kabanero" href="/feed.xml">
+  <link href="https://fonts.googleapis.com/css?family=Asap:400,500" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="KabaneroIO" />
+  <meta name="twitter:title" content="Kabanero" />
+  <meta name="twitter:description" content="Kabanero delivers new and existing middleware tools to modernize your cloud journey." />
+  <meta name="twitter:image" content="https://kabanero.io/img/Kabanero_Logo_Colored.png" />
+
+  <meta name="google-site-verification" content="yI8NT1dwfSQj6BTL4sPakqn0rI8aBu1GCdxMZFh1aic" />
+
+</head>
+
+
+  <body>
+    
+    
+
+    <main aria-label="Content">
+
+      <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<!-- HTML structure for any overview documentation -->
+<div id="overview-content">
+    <div id="overview-title">
+        Server configuration overview
+    </div>
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Open Liberty server config is made up of one mandatory file, the
+<code>server.xml</code> file, and a set of optional additional files. The <code>server.xml</code> is
+the only mandatory config file.  The only requirements for the <code>server.xml</code>
+file are that it must be well formed XML and the root element is <code>server</code>. When
+processing the <code>server.xml</code> file, any elements or attributes that are not
+understood are simply ignored. The default <code>server.xml</code> might look like the
+following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server</span> <span class="attribute-name">description</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">new server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;featureManager&gt;</span>
+        <span class="tag">&lt;feature&gt;</span>jsp-2.3<span class="tag">&lt;/feature&gt;</span>
+    <span class="tag">&lt;/featureManager&gt;</span>
+    <span class="tag">&lt;httpEndpoint</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">defaultHttpEndpoint</span><span class="delimiter">&quot;</span></span>
+                  <span class="attribute-name">httpPort</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">9080</span><span class="delimiter">&quot;</span></span>
+                  <span class="attribute-name">httpsPort</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">9443</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;applicationManager</span> <span class="attribute-name">autoExpand</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example <code>server.xml</code> configures the server to support Java Server Pages 2.3,
+to listen to incoming traffic to localhost on port 9080, and to automatically
+expand WAR files when they are deployed.</p>
+</div>
+<div class="paragraph">
+<p>The <code>server.xml</code> is described in more detail <a href="#server-xml">below</a>. When
+discussing config for Open Liberty, the term "server config" can be used to refer
+to all of the files that make up the server config, or specifically to the
+config held in XML files; it is usually clear in context and, if not, the
+phrase "server XML config" might be used to clarify. The next few sections
+describe each of the config files in the order they are processed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="server-env">server.env</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>server.env</code> files are optional but, when present, are read by the
+<code>bin/server</code> script and specify environment variables primarily used to
+influence the behavior of the <code>bin/server</code> script. <code>server.env</code> files are read
+from the following locations in order:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>${wlp.install.dir}/etc/</code></p>
+</li>
+<li>
+<p><code>${wlp.user.dir}/shared/</code></p>
+</li>
+<li>
+<p><code>${server.config.dir}/</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the same property is set in multiple locations the last value found is
+used.</p>
+</div>
+<div class="paragraph">
+<p>The most common use of this file is to set the following settings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>JAVA_HOME</code> - indicates which JVM to use. If this is not set, the system default
+is used which often isn&#8217;t desired.</p>
+</li>
+<li>
+<p><code>WLP_USER_DIR</code> - indicates the location of the <code>usr</code> directory which contains
+the server config. This can only be set in the <code>etc/server.env</code> file because
+the other locations are relative to the <code>usr</code> directory.</p>
+</li>
+<li>
+<p><code>WLP_OUTPUT_DIR</code> - indicates where the server should write files to. By
+default, the server writes to the directory structure that the config is
+read from. However, in some secure profiles the server config needs to
+be read-only and so the server must write files to another location.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>server.env</code> file format is in terms of <code>KEY = value</code> and does not support
+variable substitution.  For example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>    JAVA_HOME=/opt/ibm/java
+    WLP_USER_DIR=/opt/wlp-usr
+Key values must not contain white space. The values are interpreted as literal so there is no need to escape spaces or other special characters.</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="jvm-options">jvm.options</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>jvm.options</code> files are optional but, when present, are read by the
+<code>bin/server</code> shell script to determine what options to use when
+launching the JVM for Open Liberty. The <code>jvm.options</code> files are read
+from the following locations in order:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>${wlp.user.dir}/shared/jvm.options</code></p>
+</li>
+<li>
+<p><code>${server.config.dir}/configDropins/defaults/</code></p>
+</li>
+<li>
+<p><code>${server.config.dir}/</code></p>
+</li>
+<li>
+<p><code>${server.config.dir}/configDropins/overrides/</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If none of these files exist, the server script looks for a file in
+<code>${wlp.install.dir}/etc</code> and uses that.</p>
+</div>
+<div class="paragraph">
+<p>Common uses of <code>jvm.options</code> files include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Setting JVM memory limits</p>
+</li>
+<li>
+<p>Enabling Java Agents provided by monitoring products</p>
+</li>
+<li>
+<p>Setting Java System Properties</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>jvm.options</code> file format uses one line per JVM option and does not support
+variable substitution. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="properties">-Xmx512m
+-Dmy.system.prop=This is the value.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There is no need to escape special characters, such as spaces.</p>
+</div>
+<div class="paragraph">
+<p>The options are read and provided in order to the JVM. If you provide multiple
+options they are all seen by the JVM (most JVMs use the last option on the
+command line and ignore prior options). Certain options must not be put in the
+<code>jvm.options</code> file such as <code>-jar</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bootstrap-properties">bootstrap.properties</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>bootstrap.properties</code> file is optional but, when present, it is read during
+Open Liberty bootstrap to provide config for the earliest stages of the
+server start-up. It is read by the server much earlier than <code>server.xml</code> so it
+can affect the start-up and behavior of the Open Liberty kernel right from the
+start. The <code>bootstrap.properties</code> file is a simple Java properties file and is
+located in <code>${server.config.dir}</code>. A common use of the <code>bootstrap.properties</code>
+file is to configure logging because it can affect logging behavior before the
+<code>server.xml</code> file is read.</p>
+</div>
+<div class="paragraph">
+<p>The <code>bootstrap.properties</code> file supports a special property, <code>bootstrap.include</code>,
+which optionally specifies another properties file to also be read during the
+bootstrap stage. This include file could, for example, contain a common set of
+bootstrap properties to be used by multiple servers. Set the <code>bootstrap.include</code>
+to an absolute or relative file path.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="server-xml">server.xml</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The most important config file is the <code>server.xml</code> file. It is a simple
+XML file format and the only requirement for the server to start is that the file is
+well-formed XML and has a root element called <code>server</code>. The exact elements
+supported by a server depend on which features the server is configured so unknown
+config is simply ignored.</p>
+</div>
+<div class="paragraph">
+<p>Open Liberty uses a principle of configuration by exception, allowing for very
+succinct config files. The runtime environment operates from a set of
+built-in config default settings. You only specify config that overrides
+those default settings.</p>
+</div>
+<div class="paragraph">
+<p>Server config files are loaded in the following order:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>${server.config.dir}/configDropins/defaults/</code></p>
+</li>
+<li>
+<p><code>${server.config.dir}/server.xml</code></p>
+</li>
+<li>
+<p><code>${server.config.dir}/configDropins/overrides/</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>${server.config.dir}/server.xml</code> file must be present but the other files
+are optional. This allows a very flexible way to compose config by simply
+dropping server-formatted XML files into directories. Within the two
+<code>configDropins</code> directories the files are read in alphabetical order.</p>
+</div>
+<div class="sect2">
+<h3 id="variable-substitution">Variable substitution</h3>
+<div class="paragraph">
+<p>You can parameterize server config using variables. When resolving
+variable names the following sources are consulted in increasing order of
+precedence:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>server.xml</code> default variable values</p>
+</li>
+<li>
+<p>envrionment variables</p>
+</li>
+<li>
+<p><code>bootstrap.properties</code></p>
+</li>
+<li>
+<p>Java system properties</p>
+</li>
+<li>
+<p><code>server.xml</code> config</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Variables are referenced using <code>${variableName}</code> syntax. In server config,
+specify variables using the <code>variable</code> element:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;variable</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">variableName</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">some.value</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Default values, specified in server config, are only used if no other value can
+be found. They are specified using the <code>variable</code> element and the <code>defaultValue</code>
+attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;variable</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">variableName</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">defaultValue</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">some.default.value</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Environment variables can be accessed as variables. From 19.0.0.3, they can be
+accessed directly by referencing the environment variable name. If the variable
+cannot be resolved the following transformations on the environment variable
+name is tried:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Replace all non-alpha num characters with _</p>
+</li>
+<li>
+<p>Change all characters to upper case.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If you enter <code>${my.env.var}</code> in <code>server.xml</code> it will look for environment
+variables with the following names:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>my.env.var</p>
+</li>
+<li>
+<p>my_env_var</p>
+</li>
+<li>
+<p>MY_ENV_VAR</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When using a Liberty release older than 19.0.0.3, environment variables can be
+accessed by adding <code>env.</code> to the start of the environment variable name:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;httpEndpoint</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">defaultHttpEndpoint</span><span class="delimiter">&quot;</span></span>
+              <span class="attribute-name">host</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${env.HOST}</span><span class="delimiter">&quot;</span></span>
+              <span class="attribute-name">httpPort</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">9080</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Variable values are always interpreted as a String with simple type conversion.
+This can lead to situations where a list of ports (e.g. <code>80,443</code>) is interpreted as
+a single string rather than as two port numbers. In this case, the variable
+substitution can be forced to split on the <code>,</code> using a <code>list</code> function. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;mongo</span> <span class="attribute-name">ports</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${list(mongoPorts)}</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">hosts</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${list(mongoHosts)}</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Simple arithmetic is also supported for variables whose value is an integer.
+The left and right side of the operator can be a variable or a number; the
+operator can be one of <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;variable</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">one</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;variable</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">two</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${one+1}</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;variable</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">three</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${one+two}</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;variable</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">six</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${two*three}</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;variable</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">five</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${six-one}</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;variable</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">threeagain</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${six/two}</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are a number of predefined variables:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>wlp.install.dir</code> - the location where the Liberty runtime is installed.</p>
+</li>
+<li>
+<p><code>wlp.server.name</code> - the name of the server.</p>
+</li>
+<li>
+<p><code>wlp.user.dir</code> - the location of the <code>usr</code> folder. Defaults to
+<code>${wlp.install.dir}/usr</code>.</p>
+</li>
+<li>
+<p><code>shared.app.dir</code> - the location of shared applications. Defaults to
+<code>${wlp.user.dir}/shared/apps</code>.</p>
+</li>
+<li>
+<p><code>shared.config.dir</code> - the directory that contains the server config. Defaults to
+<code>${wlp.user.dir}/shared/config</code>.</p>
+</li>
+<li>
+<p><code>shared.resource.dir</code> - the location of shared resource files. Defaults to
+<code>${wlp.user.dir}/shared/resources</code>.</p>
+</li>
+<li>
+<p><code>server.config.dir</code> - the directory that server config is stored in.
+Defaults to <code>${wlp.user.dir}/servers/${wlp.server.name}</code>.</p>
+</li>
+<li>
+<p><code>server.output.dir</code> - the directory that the server writes the workarea, logs and
+other runtime generated files to. Defaults to <code>${server.config.dir}</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="config-merging">Config merging</h3>
+<div class="paragraph">
+<p>The config can be made up of multiple files so it is possible, perhaps
+even likely, that two files provide the same config. In these
+situations the server config is merged using a set of simple rules. In
+Open Liberty, config is separated into singleton and factory
+config. Merging works differently for the two. Singleton config
+is used when configuring a single thing (e.g. logging); factory config is
+used when it is valid to configure multiple things, (e.g. an application or a
+data source).</p>
+</div>
+<div class="sect3">
+<h4 id="merging-singleton-config">Merging singleton config</h4>
+<div class="paragraph">
+<p>For singleton config elements the config is merged. If two
+elements exist with different attributes both attributes are used. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;logging</span> <span class="attribute-name">a</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;logging</span> <span class="attribute-name">b</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>is treated as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;logging</span> <span class="attribute-name">a</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">b</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the same attribute is specified twice then it is treated as a last instance
+wins. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;logging</span> <span class="attribute-name">a</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">b</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;logging</span> <span class="attribute-name">b</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>is treated as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;logging</span> <span class="attribute-name">a</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">b</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In some cases, config is provided using child elements that take text. In
+these cases the config is merged by using all of the values specified. The most
+common scenario is configuring features. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;featureManager&gt;</span>
+        <span class="tag">&lt;feature&gt;</span>servlet-4.0<span class="tag">&lt;/feature&gt;</span>
+    <span class="tag">&lt;/featureManager&gt;</span>
+    <span class="tag">&lt;featureManager&gt;</span>
+        <span class="tag">&lt;feature&gt;</span>restConnector-2.0<span class="tag">&lt;/feature&gt;</span>
+    <span class="tag">&lt;/featureManager&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>is treated as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;featureManager&gt;</span>
+        <span class="tag">&lt;feature&gt;</span>servlet-4.0<span class="tag">&lt;/feature&gt;</span>
+        <span class="tag">&lt;feature&gt;</span>restConnector-2.0<span class="tag">&lt;/feature&gt;</span>
+    <span class="tag">&lt;/featureManager&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="merging-factory-config">Merging factory config</h4>
+<div class="paragraph">
+<p>Factory config merges use the same rules as singleton config but, because
+it is valid to configure the same element and mean two different logical objects,
+merging doesn&#8217;t happen just because the element names match. Instead each
+element is assumed to be configuring a distinct object. If the logical object is
+configured by two instances, the <code>id</code> attribute must be set on each of them
+to indicate they are the same thing. Variable substitution on an <code>id</code> is not
+supported.</p>
+</div>
+<div class="paragraph">
+<p>The following example configures two applications. One is <code>myapp.war</code> and has a
+context root of <code>myawesomeapp</code> and the other is <code>myapp2.war</code> which has <code>myapp2</code> as
+the context root:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;webApplication</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">app1</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">location</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myapp.war</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;webApplication</span> <span class="attribute-name">location</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myapp2.war</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;webApplication</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">app1</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">contextRoot</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/myawesomeapp</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="include-processing">Include processing</h3>
+<div class="paragraph">
+<p>In addition to the default locations, additional config files can be
+brought in using the <code>include</code> element. When a server config file contains an
+<code>include</code> reference to another file, the server processes the contents of the
+referenced file as if they were included inline in place of the <code>include</code>
+element. In the following example, the server processes the contents of the
+<code>other.xml</code> file before processing the contents of the <code>other2.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;include</span> <span class="attribute-name">location</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">other.xml</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;include</span> <span class="attribute-name">location</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">other2.xml</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, an include file must exist but, if the include file might not be
+present, the <code>optional</code> attribute can be set to <code>true</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;include</span> <span class="attribute-name">location</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">other.xml</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">optional</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When including a file, you can specify the <code>onConflict</code> attribute to change the
+normal merge rules. The normal merge rules can be replaced to ignore (<code>IGNORE</code>) any
+conflicting config or to replace it (<code>REPLACE</code>).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;include</span> <span class="attribute-name">location</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">other.xml</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">onConflict</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">IGNORE</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;include</span> <span class="attribute-name">location</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">other2.xml</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">onConflict</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">REPLACE</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can set the <code>location</code> attribute to a relative or absolute file path or to
+an HTTP URL.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="config-references">Config references</h3>
+<div class="paragraph">
+<p>Most configuration in Open Liberty is self-contained but it is often useful to
+be able to share config. A common example of this would be the JDBC driver
+config being shared by multiple data sources, or sharing the classloader for
+JDBC driver classes so the classes are visible both to the DataSource and to an
+application. Any factory config element defined as a direct child of the
+<code>server</code> element can be referred to.</p>
+</div>
+<div class="paragraph">
+<p>A reference to config always uses the <code>id</code> attribute of the element being referred
+to. The config element making the reference uses an attribute that always ends
+with <code>Ref</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+  <span class="tag">&lt;dataSource</span> <span class="attribute-name">jndiName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">jdbc/fred</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">jdbcDriverRef</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myDriver</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;jdbcDriver</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myDriver</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dynamic-updates">Dynamic updates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The server monitors the server XML config for updates and dynamically
+reloads when changes are detected. Changes to non-XML files (<code>server.env</code>, <code>bootstrap.properties</code>, and
+<code>jvm.options</code>) are not dynamic because they are only read at start-up. Any server
+XML config file on the local disk is monitored for updates every 500ms. Whether to
+check, and how often, can be configured. To configure the server to only check
+every ten minutes specify:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;config</span> <span class="attribute-name">monitorInterval</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">10m</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To disable file system polling and only reload when an MBean is notified specify:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;config</span> <span class="attribute-name">updateTrigger</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">mbean</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="log-messages">Log Messages</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While the server is running it might output log messages that reference some
+config. When this happens an XPath-like structure is used. The element name is
+given with the value of the <code>id</code> attribute inside square brackets. If no <code>id</code> is
+specified in server config, an <code>id</code> is automatically generated. From the server
+XML config in the following example, the logs reference the <code>dataStore</code> element
+as <code>dataStore[myDS]</code> and the child dataSource would be identfied as
+<code>dataStore[myDS]/dataSource[default-0]</code> in logs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;server&gt;</span>
+    <span class="tag">&lt;dataStore</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">myDS</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;dataSource</span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/dataStore&gt;</span>
+<span class="tag">&lt;/server&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+    </main>
+
+    <!-- Cookie preference button -->
+    <div id="teconsent" style="display: none"></div>
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+  </body>
+
+</html>

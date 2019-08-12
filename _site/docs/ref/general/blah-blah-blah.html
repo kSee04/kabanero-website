@@ -1,0 +1,117 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="general_title"> blah
+    </div>
+
+    <!-- General reference content section -->
+    <div class="sect2">
+<h3 id="prerequisites">Prerequisites</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>openshift_master_default_subdomain is configured</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.openshift.com/container-platform/3.11/install/configuring_inventory_file.html" class="bare">https://docs.openshift.com/container-platform/3.11/install/configuring_inventory_file.html</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Wildcard DNS is available for your subdomain</p>
+<div class="ulist">
+<ul>
+<li>
+<p>alternatively, nip.io can be used</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The Openshift Internal Registry is configured</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.openshift.com/container-platform/3.11/install_config/registry/index.html" class="bare">https://docs.openshift.com/container-platform/3.11/install_config/registry/index.html</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="installation-scripts">Installation Scripts</h3>
+<div class="paragraph">
+<p>Retrieve the installation scripts from the following repository</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/kabanero-io/docs/tree/master/ref/scripts" class="bare">https://github.com/kabanero-io/docs/tree/master/ref/scripts</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="installation">Installation</h3>
+<div class="paragraph">
+<p>As an Openshift <code>cluster-admin</code>, run the following</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>openshift_master_default_subdomain=my.openshift.master.default.subdomain ./install-kabanero-foundation.sh</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sample-appsody-project-with-manual-tekton-pipeline-run">Sample Appsody project with manual Tekton pipeline run</h3>
+<div class="paragraph">
+<p>Create a Persistent Volume for the pipeline to use. A sample hostPath <code>pv.yaml</code> is provided.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>oc apply -f pv.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create the pipeline and execute the example manual pipeline run</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>APP_REPO=https://github.com/dacleyra/appsody-hello-world/ ./appsody-tekton-example-manual-run.sh</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, the application container image will be built and pushed to the Openshift Internal Registry, and then deployed as a Knative Service.</p>
+</div>
+<div class="paragraph">
+<p>View manual pipeline logs</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>oc logs $(oc get pods -l tekton.dev/pipelineRun=appsody-manual-pipeline-run --output=jsonpath={.items[0].metadata.name}) --all-containers</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Access Tekton dashboard at <code><a href="http://tekton-dashboard.my.openshift.master.default.subdomain" class="bare">http://tekton-dashboard.my.openshift.master.default.subdomain</a></code></p>
+</div>
+<div class="paragraph">
+<p>Access application at <code><a href="http://appsody-hello-world.appsody-project.my.openshift.master.default.subdomain" class="bare">http://appsody-hello-world.appsody-project.my.openshift.master.default.subdomain</a></code></p>
+</div>
+</div>
+</div>

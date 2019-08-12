@@ -1,0 +1,383 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MicroProfile simplifies developing cloud-native Java microservices - Kabanero</title>
+  <meta name="description" content="Microservice architecture is a popular approach for building cloud-native applications in which each capability is developed as an independent service. It enables small, autonomous teams to develop, deploy, and scale their respective services independently.">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="/assets/kabanero-a0c7ce816709f8f1f869c5f3e20ea18be786a38939ceb1f0e3b6bb4cbbce2caa.css">
+  <link rel="stylesheet" type="text/css" href="/assets/coderay-custom-2064fdd73da35b0a6084122db82d0f16112fecbaf174cf845382a2a8b1e3ffd1.css">
+
+  
+    <link rel="stylesheet" type="text/css" href="/assets/intro-b7d56e9c1481988421c66f869b33c812c74d23b20dfbf93d20b85109243ce9d5.css">
+  
+    <link rel="stylesheet" type="text/css" href="/assets/doc-header-5879c0199e0b5157f8b4687e433dc204e32bfdaae01aa7fe8fcd3946442b69b5.css">
+  
+
+  
+
+  
+
+  <link rel="canonical" href="http://0.0.0.0:4000/docs/intro/microprofile.html">
+  <link rel="alternate" type="application/rss+xml" title="Kabanero" href="/feed.xml">
+  <link href="https://fonts.googleapis.com/css?family=Asap:400,500" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="KabaneroIO" />
+  <meta name="twitter:title" content="Kabanero" />
+  <meta name="twitter:description" content="Microservice architecture is a popular approach for building cloud-native applications in which each capability is developed as an independent service. It enables small, autonomous teams to develop, deploy, and scale their respective services independently." />
+  <meta name="twitter:image" content="https://kabanero.io/img/Kabanero_Logo_Colored.png" />
+
+  <meta name="google-site-verification" content="yI8NT1dwfSQj6BTL4sPakqn0rI8aBu1GCdxMZFh1aic" />
+
+</head>
+  
+
+  <body>
+    
+    
+
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+		
+        <a href="/">
+            <img id="kabanero_nav_img" src="/img/Kabanero_logo_white.png" class="img-fluid" alt="Kabanero Nav image">
+        </a>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar-toggler-icon"></div>
+        </button>
+
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<div class="nav-container">
+
+                <a class="float_right_section" target="_blank" href="https://ibm-cloud-tech.slack.com/messages/CJZCYTD0Q">
+                    <img id="header_slack_img" src="/img/slack_Icon.svg" class="img-fluid" alt="slack logo">
+                </a>
+                <a class="float_right_section" target="_blank" href="https://stackoverflow.com/questions/tagged/kabanero">
+                    <img id="header_stackoverflow_img" src="/img/Header_StackO.svg" class="img-fluid" alt="stackoverflow logo">
+                </a>
+				<a class="float_right_section" target="_blank" href="https://github.com/kabanero-io">
+					<img id="header_github_img" src="/img/header_github_icon.svg" class="img-fluid" alt="github logo">
+				</a>
+				<a class="float_right_section" target="_blank" href="https://twitter.com/Kabaneroio">
+					<img id="header_twitter_img" src="/img/header_twitter_icon.svg" class="img-fluid" alt="twitter logo">
+                </a>
+
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/try-it">Try It</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="/collections">Collections</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <main aria-label="Content">
+
+      <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<section class="banner" aria-labelledby="intro_title">
+    <!-- Guide header section -->
+    <div id="intro_meta" class="sect1">
+        <h1 id="intro_title">MicroProfile simplifies developing cloud-native Java microservices</h1>
+        <div id="duration_container"></div>
+    </div>
+</section>
+<div id="background-container" class="gray_background">
+    <div class="centered_column">
+        <div class="row">
+            <!-- Entire guide section -->
+            <div id="intro_column" class="col-sm-12 position-relative">
+                <div id="intro-content">
+                    <!-- Guide content section -->
+                    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Microservice architecture is a popular approach for building cloud-native applications in which each capability is developed as an independent service. It enables small, autonomous teams to develop, deploy, and scale their respective services independently.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://microprofile.io/">Eclipse MicroProfile</a> is a modular set of technologies designed so that you can write cloud-native Java&#8482; microservices. In this introduction, learn how MicroProfile helps you develop and manage cloud-native microservices. Then, follow the Open Liberty MicroProfile guides to gain hands-on experience with MicroProfile so that you can build microservices with Open Liberty.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rapidly-deploy-cloud-native-java-microservices-at-scale">Rapidly deploy cloud-native Java microservices at scale</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud-native is an industry-wide approach to developing and rapidly deploying applications to the cloud at scale. Cloud-native applications are designed around team-aligned microservices and developed by using agile practices and continuous integration/continuous delivery (CI/CD) to streamline deployment. With a range of vendors providing cloud platforms, open source and open standards are essential enablers for avoiding vendor lock-in.</p>
+</div>
+<div class="paragraph">
+<p>MicroProfile enables you to develop and deploy cloud-native Java applications as loosely-coupled, lightweight services, each representing one unique business function. This approach is modular and makes the application easy to understand, easy to develop, easy to test, and easy to maintain.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="production-benefits-of-a-microservice-architecture">Production benefits of a Microservice architecture</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Writing code more quickly isn&#8217;t the only reason that MicroProfile is popular. It also helps your applications scale on a more granular level because each service is built and managed independently. The high-traffic services can be individually scaled to efficiently use resources rather than scaling up the entire system. Another benefit is that failures in one service can be isolated from the rest of the system; if a service fails, services that are independent are unaffected while dependent services can employ fault tolerance strategies to prevent the failure from cascading to other services.</p>
+</div>
+<div class="paragraph">
+<p>Although a microservice architecture provides many benefits, it also introduces new challenges not apparent in traditional monolithic applications. MicroProfile addresses these challenges so that you can easily develop cloud-native applications. These challenges include toleration of service failures, end-to-end security for an authenticated user request flowing through a set of microservices, and problem determination for requests spanning many services.</p>
+</div>
+<div class="sect2">
+<h3 id="developing-restful-scalable-observable-microservices-microprofile-layers-of-functionality">Developing RESTful, scalable, observable microservices: MicroProfile layers of functionality</h3>
+<div class="paragraph">
+<p>MicroProfile can be organized into three layers of functionality. The bottom layer represents RESTful services, the middle layer is for writing microservices that can be operated and managed at scale, and the top layer contains tools to help you write observable microservices that enable you to detect and diagnose issues.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/docs/img/microprofile-layers.png" alt="microprofile layers">
+</div>
+</div>
+<div class="sect3">
+<h4 id="microprofile-simplifies-developing-cloud-native-java-microservices">MicroProfile simplifies developing cloud-native Java microservices</h4>
+<div class="paragraph">
+<p>The vast majority of cloud-native microservices are based on REST APIs, making the bottom layer the most essential. At its foundation, MicroProfile provides a set of technologies that make developing and using REST APIs easy. MicroProfile takes a small set of Java EE APIs: JAX-RS; CDI; JSON-B and JSON-P and augments them with a simple type-safe REST client API making it easy to consume REST services.</p>
+</div>
+<div class="sect4">
+<h5 id="build-rest-services">Build REST services</h5>
+<div class="paragraph">
+<p>The JAX-RS, CDI, JSON-B and JSON-P Java EE technologies provide the base for MicroProfile. If you&#8217;re new to Java EE and MicroProfile, this is a good place to start. JAX-RS is a Java API that allows you to build REST APIs by creating resource classes and adding appropriate annotations to create the necessary web endpoints. Context and Dependency Injection (CDI) provides objects with the dependencies that they need through the <code>@Inject</code> annotation rather than directly creating an object or finding them using a factory. JSON-P and JSON-B makes it easy to automatically serialize and deserialize classes to and from JSON.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="consuming-a-rest-service-with-type-safe-java">Consuming a REST service with type-safe Java</h5>
+<div class="paragraph">
+<p>MicroProfile Rest Client provides a type-safe approach for invoking REST services over HTTP. This API greatly simplifies the client-side API as defined by JAX-RS. MicroProfile Rest Client handles the communication between the client and service. You only need to define and annotate an interface that describes the actions that you need to perform on a REST resource. An implementation of this interface is automatically generated for you when CDI is used to inject your client into a dependent class.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="microprofile-simplifies-scaling-your-organization">MicroProfile simplifies scaling your organization</h4>
+<div class="paragraph">
+<p>Handling hundreds of autonomous, collaborating and frequently evolving services introduces a number of new challenges.  These challenges include, for example, documenting and sharing APIs across teams, propagating security across services, handling network or service failures, and continuously integrating and deploying service updates. The middle layer of MicroProfile features provide a number of APIs to simplify these tasks.</p>
+</div>
+<div class="sect4">
+<h5 id="document-your-rest-apis">Document your REST APIs</h5>
+<div class="paragraph">
+<p>MicroProfile OpenAPI provides a Java API for the OpenAPI specification that you can use to expose API documentation for your REST APIs.  You can natively produce OpenAPI documents from your JAX-RS applications. OpenAPI is a standardization of <a href="https://swagger.io/blog/difference-between-swagger-and-openapi/">the Swagger specification</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="handle-unexpected-failures-in-your-microservices">Handle unexpected failures in your microservices</h5>
+<div class="paragraph">
+<p>MicroProfile Fault Tolerance provides an API and annotations for building robust behavior to cope with unexpected failures in the service you depend on. Aspects of fault tolerance include timeouts, retries, fallbacks, bulkhead processing, and circuit breakers.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="authentication-and-role-based-access-control">Authentication and role-based access control</h5>
+<div class="paragraph">
+<p>MicroProfile JWT provides for interoperable authentication and role-based access control for your services.  It allows for an authenticated JWT token to be shared across multiple microservices even if these services are running on multiple vendor implementations. It also allows for access to microservice operations to be controlled based on user and role information passed within the JWT token.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="externalize-configuration-to-improve-portability">Externalize configuration to improve portability</h5>
+<div class="paragraph">
+<p>MicroProfile Config externalizes configuration from the application to improve portability of the application. A core principle is to be able to override configuration at deployment time using system properties and environment variables. This means you can build your microservice once and deploy it many times through your CI/CD pipeline by changing the configuration for each deployment.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="microprofile-helps-you-write-observable-microservices">MicroProfile helps you write observable microservices</h4>
+<div class="paragraph">
+<p>Handling hundreds of microservices requires a strong operations focus. If the system is beginning to exhibit problems, how do you track down the root cause when a request might span tens or hundreds of services?  How can you tell which service is not performing well, or understand the journey a request took through those microservices? The top layer of the MicroProfile feature set helps you answer these questions. It provides APIs to help you understand the health of services, how they&#8217;re performing, and how requests are flowing through them.</p>
+</div>
+<div class="sect4">
+<h5 id="determine-a-microservices-availability">Determine a microservice&#8217;s availability</h5>
+<div class="paragraph">
+<p>MicroProfile Health Check provides a common REST endpoint format to determine whether a microservice is healthy or not. Health can be determined by the service itself and might be based on the availability of necessary resources (for example, a database) and services.  The service itself might be running but considered unhealthly if the things it requires for normal operation are unavailable.  The Health Check endpoints are also designed to be easily integrated into Kubernetes liveness and readiness probes.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="monitor-a-microservices-telemetry-data">Monitor a microservice&#8217;s telemetry data</h5>
+<div class="paragraph">
+<p>MicroProfile Metrics provides common REST endpoints for monitoring the telemetry data of a running microservice, similar in nature to JMX but a much simpler API that uses JAX-RS.  Both built-in and application-defined metrics are accessible, with the output in either JSON or Prometheus text formats. This API provides more extensive detail than the simple up and down reporting provided by MicroProfile Health.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="enable-distributed-tracing-of-your-microservices">Enable distributed tracing of your microservices</h5>
+<div class="paragraph">
+<p>MicroProfile OpenTracing allows services to easily participate in a distributed tracing environment.  OpenTracing defines behaviors and an API for accessing an <a href="http://opentracing.io/">OpenTracing</a>-compliant Tracer object within your microservice.  These trace logs can then be consumed by a third-party distributed tracing facility such as <a href="https://zipkin.io/">Zipkin</a> or <a href="https://github.com/jaegertracing/jaeger">Jaeger</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="where-to-next">Where to next?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that you’ve seen the tools that MicroProfile provides for creating and managing microservices, you’re probably itching to try them out yourself! Check out the <a href="https://openliberty.io/guides/?search=MicroProfile&amp;key=tag">MicroProfile guides</a> written by our team. Your next project will be ready to launch in no time!</p>
+</div>
+</div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </main>
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<footer>
+        <div id="footer_kabanero_background">
+            <div id="footer_top_container" class="footer_container container-fluid">
+                <div id="footer_project_container">
+                    <div id="kabanero_footer_logo">
+                        <img id="header_slack_img" src="/img/Kabanero_full_logo-white.svg" class="img-fluid" alt="Kabanero logo">
+                    </div>
+                    <p id="footer_project">an IBM open source project</p>
+                </div>
+                <div id="footer_round_links_container">
+                    <a id="footer_twitter_link" class="footer_round_btn" href="https://twitter.com/Kabaneroio" target="_blank" rel="noopener" aria-label="Twitter"></a>
+                    <a id="footer_github_link" class="footer_round_btn" href="https://github.com/kabanero-io" target="_blank" rel="noopener" aria-label="Github"></a>
+                    <a id="footer_stackoverflow_link" class="footer_round_btn" href="https://stackoverflow.com/questions/tagged/kabanero" target="_blank" rel="noopener" aria-label="Kabanero questions on Stack Overflow"></a>
+                    <a id="footer_slack_link" class="footer_round_btn" href="https://ibm-cloud-tech.slack.com/messages/CJZCYTD0Q" target="_blank" rel="noopener" aria-label="Kabanero Slack channel"></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer_bottom_container" class="footer_container container-fluid">
+            <div id="footer_bottom_left_section">
+                <p id="footer_copyright">&copy; Copyright IBM Corp. 2019</p>
+                <p class="vertical_bar">|</p>
+                <a id="footer_privacy_policy_link" href="https://www.ibm.com/privacy/" target="_blank" rel="noopener" class="left_footer_link">Privacy policy</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_license_link" href="https://github.com/kabanero-io/kabanero-website/blob/master/LICENSE" target="_blank" rel="noopener" class="left_footer_link">License</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_notice_link" href="https://github.com/kabanero-io/kabanero-website/blob/master/NOTICE.md" target="_blank" rel="noopener" class="left_footer_link">Notices</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_notice_link" href="https://github.com/kabanero-io/kabanero-website/blob/master/IBM-Trademark-Policy.md" target="_blank" rel="noopener" class="left_footer_link">IBM Trademark</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRE-LOADED IMAGES FOR ON HOVER BEHAVIOR -->
+    <div class="d-none hidden">
+        <img src="/img/header_github_icon_hover.svg">
+        <img src="/img/header_twitter_icon_hover.svg">
+    </div>
+
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+
+  <script src="/assets/intro-e8473b369d28ad180037bb5ad47d2fd54aa3807798ee26eaf6deac4d51858511.js" type="text/javascript"></script>
+
+
+
+  </body>
+
+</html>

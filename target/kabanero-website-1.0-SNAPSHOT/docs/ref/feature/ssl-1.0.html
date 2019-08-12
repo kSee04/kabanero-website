@@ -1,0 +1,186 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="feature_title"> Secure Socket Layer 1.0
+    </div>
+
+    <!-- Feature content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This feature enables support for Secure Sockets Layer (SSL) connections. The secure HTTPS listener is not started unless the ssl-1.0 feature is enabled and a keystore is configured.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling-this-feature">Enabling this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable the Secure Socket Layer 1.0 feature, add the following element declaration inside the featureManager element in your server.xml file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;feature&gt;ssl-1.0&lt;/feature&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-this-feature-is-superseded-by">Features that this feature is superseded by</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#transportSecurity-1.0.html">transportSecurity-1.0</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="feature-configuration-elements">Feature configuration elements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/config/#channelfw.html">channelfw</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#keyStore.html">keyStore</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#ssl.html">ssl</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#sslDefault.html">sslDefault</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#sslOptions.html">sslOptions</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#tcpOptions.html">tcpOptions</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ibm-api-packages-provided-by-this-feature">IBM API packages provided by this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>com.ibm.websphere.ssl</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-java-versions">Supported Java versions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>JavaSE-1.7</p>
+</li>
+<li>
+<p>JavaSE-1.8</p>
+</li>
+<li>
+<p>JavaSE-11.0</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-enable-this-feature">Features that enable this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#appSecurity-2.0.html">appSecurity-2.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#appSecurity-3.0.html">appSecurity-3.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#appSecurityClient-1.0.html">appSecurityClient-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#audit-1.0.html">audit-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#federatedRegistry-1.0.html">federatedRegistry-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jcaInboundSecurity-1.0.html">jcaInboundSecurity-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jwt-1.0.html">jwt-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpMetrics-1.0.html">mpMetrics-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpMetrics-1.1.html">mpMetrics-1.1</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#restConnector-2.0.html">restConnector-2.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#socialLogin-1.0.html">socialLogin-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#transportSecurity-1.0.html">transportSecurity-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#wasJmsSecurity-1.0.html">wasJmsSecurity-1.0</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="developing-a-feature-that-depends-on-this-feature">Developing a feature that depends on this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are developing a feature that depends on the Secure Socket Layer 1.0 feature, include the following item in the Subsystem-Content header in the feature manifest file for your new feature:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>com.ibm.websphere.appserver.ssl-1.0; type=&quot;osgi.subsystem.feature&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="spi-packages-provided-by-this-feature">SPI packages provided by this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>com.ibm.wsspi.ssl</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>

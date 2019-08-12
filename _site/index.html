@@ -1,0 +1,902 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Kabanero</title>
+  <meta name="description" content="Kabanero delivers new and existing middleware tools to modernize your cloud journey.">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="/assets/kabanero-a0c7ce816709f8f1f869c5f3e20ea18be786a38939ceb1f0e3b6bb4cbbce2caa.css">
+  <link rel="stylesheet" type="text/css" href="/assets/coderay-custom-2064fdd73da35b0a6084122db82d0f16112fecbaf174cf845382a2a8b1e3ffd1.css">
+
+  
+    <link rel="stylesheet" type="text/css" href="/assets/header-ddf98496c5b2f51dcd0076c26ea31bb8fe57ac8f2369b1f3ea9d588e6c4fbbe3.css">
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/assets/home-eeacca73cd259720c42a229a07d340da90be7ace74b1e59d26ab87487dba5c04.css">
+  
+    <link rel="stylesheet" type="text/css" href="/assets/blog-44a9b3b7a0b4f09909ba700fbb226b98abe8caf1fdc0194d1b22c42d1299fc26.css">
+  
+
+  
+
+  <link rel="canonical" href="http://0.0.0.0:4000/">
+  <link rel="alternate" type="application/rss+xml" title="Kabanero" href="/feed.xml">
+  <link href="https://fonts.googleapis.com/css?family=Asap:400,500" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="KabaneroIO" />
+  <meta name="twitter:title" content="Kabanero" />
+  <meta name="twitter:description" content="Kabanero delivers new and existing middleware tools to modernize your cloud journey." />
+  <meta name="twitter:image" content="https://kabanero.io/img/Kabanero_Logo_Colored.png" />
+
+  <meta name="google-site-verification" content="yI8NT1dwfSQj6BTL4sPakqn0rI8aBu1GCdxMZFh1aic" />
+
+</head>
+
+
+  <body>
+    
+    
+
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+		
+        <a href="/">
+            <img id="kabanero_nav_img" src="/img/Kabanero_logo_white.png" class="img-fluid" alt="Kabanero Nav image">
+        </a>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar-toggler-icon"></div>
+        </button>
+
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<div class="nav-container">
+
+                <a class="float_right_section" target="_blank" href="https://ibm-cloud-tech.slack.com/messages/CJZCYTD0Q">
+                    <img id="header_slack_img" src="/img/slack_Icon.svg" class="img-fluid" alt="slack logo">
+                </a>
+                <a class="float_right_section" target="_blank" href="https://stackoverflow.com/questions/tagged/kabanero">
+                    <img id="header_stackoverflow_img" src="/img/Header_StackO.svg" class="img-fluid" alt="stackoverflow logo">
+                </a>
+				<a class="float_right_section" target="_blank" href="https://github.com/kabanero-io">
+					<img id="header_github_img" src="/img/header_github_icon.svg" class="img-fluid" alt="github logo">
+				</a>
+				<a class="float_right_section" target="_blank" href="https://twitter.com/Kabaneroio">
+					<img id="header_twitter_img" src="/img/header_twitter_icon.svg" class="img-fluid" alt="twitter logo">
+                </a>
+
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/try-it">Try It</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="/collections">Collections</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <main aria-label="Content">
+
+      <!-- INTRO -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div id="intro-content">
+                <img src="/img/kabanero-final.svg" class="img-fluid" id="kabanero-img" alt="boxes">
+                <h3 id="intro-lighten-up-title">Create more, faster</h3>
+                <p id="intro-paragraph">
+                    Kabanero is an open source project focused on bringing together foundational open source technologies into a
+                    modern microservices-based framework. Developing apps for container platforms requires harmony between developers,
+                    architects, and operations. Today’s developers need to be efficient at much more than writing code. Architects and
+                    operations get overloaded with choices, standards, and compliance. Kabanero speeds development of applications
+                    built for Kubernetes while meeting the technology standards and policies your company defines. Design, develop,
+                    deploy, and manage with speed and control!
+                </p>
+                <a class="col-md-5" id="get-started-link" href="/try-it">Try It</a>
+            </div>
+        </div>
+        <div class="col-md-4 d-none d-md-block">
+            <img src="/img/kabanero-logo-stripe.png " class="img-fluid" alt="boxes">
+        </div>
+    </div>
+</div>
+
+<!-- Video- Kabanero Developer Workflow -->
+<div class="area video">
+    <div class="container">
+        <div class="row">
+            <div class="col-md usage-video">
+              <div class="video-wrapper"> 
+                <iframe width="100%" height="400px" src="https://www.youtube.com/embed/_7--MS0RNXI" 
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Role Boxes -->
+<div class="area">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="list-group list-group-flush list-group-horizontal-md" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active list-item-centered" id="list-dev-list" data-toggle="list" 
+                href="#list-dev" role="tab" aria-controls="profile">Development</a>
+
+                <a class="list-group-item list-group-item-action list-item-centered" id="list-arch-list" data-toggle="list" 
+                href="#list-arch" role="tab" aria-controls="home">Architecture</a>
+
+                <a class="list-group-item list-group-item-action list-item-centered" id="list-op-list" data-toggle="list" 
+                href="#list-op" role="tab" aria-controls="messages">Operations</a>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-md">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-dev" role="tabpanel" aria-labelledby="list-dev-list">
+                    <div class="row">
+                        <div class="col-2 img-col">
+                            <img class="list-group-img d-none d-md-block" src="/img/logos/development.png">
+                        </div>
+                        <p class="col-9 list-group-text">
+                            <span class="section-title">Develop more, faster</span>
+                            <br><br>
+                            Use your favorite development tools to create apps for Kubernetes faster.
+                            Develop, test, and debug in containers, and deploy with confidence knowing you’re automatically
+                            compliant with company policies. Spend more time writing code rather than re-tooling and
+                            building deep Kubernetes skills. Select a Kabanero Collection customized by your team for languages
+                            and programming models that you use on a daily basis.
+                            <br><br>
+                            <strong>100% Open Source.
+                                <span class="bumper"></span>
+                                Automated.
+                                <span class="bumper"></span>
+                                Integrated.
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-arch" role="tabpanel" aria-labelledby="list-arch-list">
+                    <div class="row">
+                        <div class="col-2 img-col">
+                            <img class="list-group-img d-none d-md-block" src="/img/logos/architecture.png">
+                        </div>
+                        <p class="col-9 list-group-text">
+                            <span class="section-title">Design more, faster</span>
+                            <br><br>
+                            Use our application stacks infused with expertise to select proven technologies, languages,
+                            and runtimes for building applications for Kubernetes. Apply customizations before sharing the
+                            application stack with developers and operations teams, to ensure your business process and governance
+                            needs are met. Application stacks reduce the decision-cycle time, enabling developers to focus on
+                            delivering line-of-business value without having to become full stack experts.
+                            <br><br>
+                            <strong>100% Open Source.
+                                <span class="bumper"></span>
+                                Automated.
+                                <span class="bumper"></span>
+                                Integrated.
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-op" role="tabpanel" aria-labelledby="list-op-list">
+                <div class="row">
+                    <div class="col-2 img-col">
+                        <img class="list-group-img d-none d-md-block" src="/img/logos/operations.png">
+                    </div>
+                    <p class="col-9 list-group-text">
+                        <span class="section-title">Manage with confidence</span>
+                        <br><br>
+                        Maintain compliance with confidence, using application stacks to deliver the
+                        latest container images with the latest security patches. Bring your existing
+                        applications into your hybrid cloud infrastructure. You get immediate visibility
+                        of your apps in one platform for existing and new apps, with a single view across
+                        hybrid deployments, whether in containers or VMs.
+                        <br><br>
+                        <strong>100% Open Source.
+                            <span class="bumper"></span>
+                            Automated.
+                            <span class="bumper"></span>
+                            Integrated.
+                        </strong>
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modernize & Cloud Native boxes -->
+<div class="container area">
+    <div class="row">
+        <div class="col-md term-box">
+            <h2>Modernize</h2>
+            <p>
+                Kabanero can help your team modernize existing applications to leverage benefits of cloud and containers.
+            </p>
+        </div>
+        <div class="col-md term-box">
+            <h2>Cloud Native</h2>
+            <p>
+                Kabanero can help you create cloud native applications with your team.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Models -->
+<div class="featured-models">
+    <div class="container">
+        <div class="row">
+            <div id="featured-models-col" class="col-md">
+                <h2>Kabanero Collections</h2>
+                <p class="description-text-block">
+                    A <strong>Kabanero Collection</strong> leads a company down a golden path to develop quality
+                    microservice-based applications. A Kabanero Collection provides guides for developers,
+                    templates for simplicity and consistency of developing applications, a
+                    runtime in a certified base container image infused with expertise for
+                    Kubernetes deployments, and an integrated toolchain for developing
+                    with modern tools.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md model-logo">
+                <button data-toggle="collapse"
+                    href="#microprofile-collapse"
+                    aria-expanded="false"
+                    aria-controls="microprofile-collapse"
+                    class="col featured-model-box"
+                    alt="microprofile logo"
+                    onclick="hideAllFeaturedModelsCollapses(this)">Eclipse MicroProfile</button>
+            </div>
+            <div class="col-md model-logo">
+                <button data-toggle="collapse"
+                    href="#spring-collapse"
+                    aria-expanded="false"
+                    aria-controls="spring-collapse"
+                    class="col featured-model-box"
+                    alt="java spring logo"
+                    onclick="hideAllFeaturedModelsCollapses(this)">Spring</button>
+            </div>
+            <div class="col-md model-logo">
+                <button data-toggle="collapse"
+                    href="#nodejs-collapse"
+                    aria-expanded="false"
+                    aria-controls="nodejs-collapse"
+                    class="col featured-model-box"
+                    alt="nodejs logo"
+                    onclick="hideAllFeaturedModelsCollapses(this)">NodeJS</button>
+            </div>
+            <div class="col-md model-logo">
+                <button data-toggle="collapse"
+                    href="#serverless-collapse"
+                    aria-expanded="false"
+                    aria-controls="serverless-collapse"
+                    class="col featured-model-box"
+                    alt="serverless logo"
+                    onclick="hideAllFeaturedModelsCollapses(this)">Serverless</button>
+            </div>
+        </div>
+        <div class="row collapse featuredModelsCollapse" id="microprofile-collapse">
+            <div class="col card card-body">
+                <div class="row collapseRow">
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://openliberty.io/">
+                            <img src="/img/logos/85x85/open-liberty.png" class="img-fluid">
+                            <p>Open Liberty</p>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <img src="/img/logos/85x85/operator.png" class="img-fluid">
+                        <p>Operators</p>
+                    </div>
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://prometheus.io/">
+                            <img src="/img/logos/85x85/prometheus.png" class="img-fluid">
+                            <p>Prometheus&reg;</p>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://tekton.dev/">
+                            <img src="/img/logos/85x85/tekton.png" class="img-fluid">
+                            <p>Tekton&trade;</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col dopdown-text">
+                        <p>
+                            Eclipse MicroProfile is a set of APIs used to optimize Java applications
+                            for a microservices architecture. With this stack, you can deliver microservices
+                            based upon the Eclipse MicroProfile specifications. Build and run high-quality
+                            applications with Open Liberty runtime, which includes OpenJDK with container-optimizations
+                            in OpenJ9.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row collapse featuredModelsCollapse" id="spring-collapse">
+            <div class="col card card-body">
+                <div class="row collapseRow">
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://openliberty.io/">
+                            <img src="/img/logos/85x85/open-liberty.png" class="img-fluid">
+                            <p>Open Liberty</p>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <img src="/img/logos/85x85/operator.png" class="img-fluid">
+                        <p>Operators</p>
+                    </div>
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://prometheus.io/">
+                            <img src="/img/logos/85x85/prometheus.png" class="img-fluid">
+                            <p>Prometheus&reg;</p>
+                            </a>
+                    </div>
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://tekton.dev/">
+                            <img src="/img/logos/85x85/tekton.png" class="img-fluid">
+                            <p>Tekton&trade;</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col dopdown-text">
+                        <p>
+                            Spring&reg; is a framework used in Java application development. With this application stack,
+                            you can deliver microservices based upon the Spring framework provided by Pivotal.
+                            Open Liberty runtime provides support for Spring applications with OpenJDK and
+                            container-optimizations in OpenJ9.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row collapse featuredModelsCollapse" id="nodejs-collapse">
+            <div class="col card card-body">
+                <div class="row collapseRow">
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://nodejs.org">
+                            <img src="/img/logos/100x100/nodejs.png" class="img-fluid stackImg">
+                            <p>NodeJS</p>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <img src="/img/logos/85x85/operator.png" class="img-fluid">
+                        <p>Operators</p>
+                    </div>
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://prometheus.io/">
+                            <img src="/img/logos/85x85/prometheus.png" class="img-fluid">
+                            <p>Prometheus&reg;</p>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://tekton.dev/">
+                            <img src="/img/logos/85x85/tekton.png" class="img-fluid">
+                            <p>Tekton&trade;</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col dopdown-text">
+                        <p>
+                            Node.js is a JavaScript runtime environment that can execute JavaScript code anywhere, not limited to a browser.
+                            Due to its single-threaded nature, Node.js enables the creation of non-blocking and event-driven servers.
+                            It fits well in web-based frontends and backend API services for microservices-based applications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row collapse featuredModelsCollapse" id="serverless-collapse">
+            <div class="col card card-body">
+                <div class="row collapseRow">
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://openliberty.io/">
+                            <img src="/img/logos/85x85/open-liberty.png" class="img-fluid">
+                            <p>Open Liberty</p>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://knative.dev/">
+                            <img class="img-fluid stackImg">
+                            <p>Knative</p>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <img src="/img/logos/85x85/operator.png" class="img-fluid">
+                        <p>Operators</p>
+                    </div>
+                    <div class="col text-center">
+                    <a class="image-link" target="_blank" href="https://prometheus.io/">
+                            <img src="/img/logos/85x85/prometheus.png" class="img-fluid">
+                            <p>Prometheus&reg;</p>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <a class="image-link" target="_blank" href="https://tekton.dev/">
+                            <img src="/img/logos/85x85/tekton.png" class="img-fluid">
+                            <p>Tekton&trade;</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col dopdown-text">
+                        <p>
+                            Serverless is a model of deployment that allows the container running the application to
+                            start on the first touch; this saves resources and is ideal for use cases that have
+                            low utilization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Open Source Platform -->
+<div class="open-source-platform">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 open-source-platform-title-row">
+                <h2 class="open-source-platform-title">
+                    Kabanero Application Development and Deployment Lifecycle
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col open-source-platform-col">
+                <div class="open-source-platform-box" onclick="hideAllOpenSourcePlatformsCollapses('modernize')">
+                    <p class="open-source-platform-paragraph">
+                        Modernize Applications
+                    </p>
+                </div>
+                <div class="open-source-platform-vertical-separator"></div>
+            </div>
+            <div class="col open-source-platform-col">
+                <div class="open-source-platform-horizontal-separator">
+                </div>
+            </div>
+            <div class="col open-source-platform-col">
+                <div class="open-source-platform-box" onclick="hideAllOpenSourcePlatformsCollapses('languages')">
+                    <p class="open-source-platform-paragraph">
+                        Languages & Runtimes
+                    </p>
+                </div>
+                <div class="open-source-platform-vertical-separator"></div>
+            </div>
+            <div class="col open-source-platform-col">
+                <div class="open-source-platform-horizontal-separator">
+                </div>
+            </div>
+            <div class="col open-source-platform-col">
+                <div class="open-source-platform-box" onclick="hideAllOpenSourcePlatformsCollapses('develop')">
+                    <p class="open-source-platform-paragraph">
+                        Develop
+                    </p>
+                </div>
+                <div class="open-source-platform-vertical-separator"></div>
+            </div>
+            <div class="col open-source-platform-col">
+                <div class="open-source-platform-horizontal-separator"></div>
+            </div>
+            <div class="col open-source-platform-col">
+                <div class="open-source-platform-box" onclick="hideAllOpenSourcePlatformsCollapses('build')">
+                    <p class="open-source-platform-paragraph">
+                        Build
+                    </p>
+                </div>
+                <div class="open-source-platform-vertical-separator"></div>
+            </div>
+            <div class="col open-source-platform-col">
+                <div class="open-source-platform-horizontal-separator">
+                </div>
+            </div>
+            <div class="col open-source-platform-col">
+                <div class="open-source-platform-box" onclick="hideAllOpenSourcePlatformsCollapses('manage')">
+                    <p class="open-source-platform-paragraph">
+                        Manage
+                    </p>
+                </div>
+                <div class="open-source-platform-vertical-separator"></div>
+            </div>
+        </div>
+        <div id="open-source-platform-modernize-collapse" class="row collapse open-source-platform-content-box">
+            <div class="row">
+                <div class="col-1 open-source-platform-image-column">
+                    <a class="image-link" target="_blank" href="https://www.ibm.com/cloud/garage/practices/learn/ibm-transformation-advisor">
+                    <img class="open-source-platform-image-centered open-source-platform-image-large"
+                            src="/img/logos/transformation-advisor-logo-light.svg">
+                    </a>
+                </div>
+                <div class="col">
+                    <p class="open-source-platform-content-title">Modernize Applications</p>
+                    <p>
+                        Plan, execute, and enhance your cloud modernization journey.
+                        Kabanero integrates with free modernization tooling from IBM for Java applications.
+                        Choose to re-factor applications based on ROI. Accelerate development efforts with assistance
+                        within your IDE using guided code changes.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="open-source-platform-languages-collapse" class="row collapse open-source-platform-content-box">
+            <div class="row">
+                <div class="col">
+                    <p class="open-source-platform-content-title">Languages and Runtimes</p>
+                    <p>
+                        Use the right language for the job. Java is at the core of most modern application
+                        environments and can support Eclipse MicroProfile or Spring-based microservices.
+                        No matter your workload, we have runtimes and application stacks to simplify
+                        application development and delivery on Kubernetes.
+                    </p>
+                </div>
+            </div>
+            <div class="row languages-row">
+                <div class="col">
+                    <span>Java</span><span class="dot-separator"></span>
+                    <span>Node</span><span class="dot-separator"></span>
+                    <span>Go</span><span class="dot-separator"></span>
+                    <span>Python</span><span class="dot-separator"></span>
+                    <span>MicroProfile</span><span class="dot-separator"></span>
+                    <span>Jakarta EE</span><span class="dot-separator"></span>
+                    <span>Spring</span><span class="dot-separator"></span>
+                    <span>Open Liberty</span>
+                </div>
+            </div>
+        </div>
+        <div id="open-source-platform-develop-collapse" class="row collapse open-source-platform-content-box">
+            <div class="row">
+                <div class="col-1 open-source-platform-image-column">
+                <a class="image-link" target="-blank" href="https://www.eclipse.org/che/">
+                    <img class="open-source-platform-image-centered open-source-platform-image-large" src="/img/logos/85x85/eclipse-che.png" />
+                </a>
+                </div>
+                <div class="col-1 open-source-platform-image-column">
+                <a class="image-link" target="_blank" href="https://appsody.dev">
+                    <img class="open-source-platform-image-centered open-source-platform-image-large" src="/img/appsody.png" />
+                </a>
+                </div>
+                <div class="col-1 open-source-platform-image-column">
+                <a class="image-link" target="_blank" href="https://codewind.dev">
+                    <img class="open-source-platform-image-centered open-source-platform-image-large" src="/img/codewind.png" />
+                </a>
+                </div>
+                <div class="col">
+                    <p class="open-source-platform-content-title">Develop</p>
+                    <p>
+                        Develop applications for Kuberentes faster using extensions to industry leading IDEs.
+                        Perform inner loop development of applications directly in containers from day one.
+                        Eclipse Codewind provides extensions to VS Code, Eclipse, as well as Eclipse Che for
+                        teams preferring a cloud hosted IDE. Hosted or local, it’s the same experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="open-source-platform-build-collapse" class="row collapse open-source-platform-content-box">
+            <div class="row">
+                <div class="col-1 open-source-platform-image-column">
+                    <a class="image-link" target="_blank" href="https://tekton.dev/">
+                        <img class="open-source-platform-image-centered open-source-platform-image-large"
+                            src="/img/logos/100x100/tekton.png"
+                            alt="tekton logo">
+                    </a>
+                </div>
+                <div class="col">
+                    <p class="open-source-platform-content-title">Build</p>
+                    <p>
+                        DevOps is critical for a successful microservices-based deployment.
+                        Kabanero supplies an integrated open source CI/CD (continuous integration / continuous delivery)
+                        infrastructure based on the open source project Tekton. Kabanero provides for a rich
+                        set of stages that pipelines can use to integrate features like patching,
+                        vulnerability scanning, and more.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="open-source-platform-manage-collapse" class="row collapse open-source-platform-content-box">
+            <div class="row">
+                <div class="col">
+                    <p class="open-source-platform-content-title">Manage</p>
+                    <p>
+                        Applications are deployed with best practices for Kubernetes deployments including
+                        scale, security, health and liveness probes. Kabanero also provides the ability to
+                        augment the base images with additional management capabilities as defined in the application stack.
+                        See everything from a single pane of glass with insights and correlation spanning traditional and Kubernetes
+                        applications for proactive problem determination.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Foundational Tools-->
+<div class="container foundational-tools foundational-tools-container">
+    <div class="row mr-0">
+        <div class="col-sm-2 offset-sm-3">
+            <a class="image-link" target="_blank" href="https://kubernetes.io/">
+                <img id="kube-img" src="/img/logos/85x85/kubernetes.png" class="img-fluid d-none d-md-block">
+            </a>
+        </div>
+        <div class="col-sm">
+            <div class="row">
+                <div class="col">
+                    <p class="open-source-platform-content-title">Built on a foundation of:</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span>Kubernetes&reg;</span>
+                    <span class="dot-separator orange"></span>
+                    <span>Knative</span>
+                    <span class="dot-separator orange"></span>
+                    <span>Istio</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Support -->
+<div class="support-block">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h2>When you are ready for support, we've got you covered</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center description-text-block">
+                The Kabanero open source project is included within 
+                <a href="https://www.ibm.com/cloud/cloud-pak-for-applications" target="_blank" class="cpa-link">
+                    IBM Cloud Pak for Applications
+                </a>
+                as Kabanero Enterprise. Cloud Pak for Applications provides a faster, more secure way 
+                to move your core business applications to any cloud, in containers. Built and supported 
+                on Red Hat OpenShift.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blog Posts -->
+<div class="container area">
+    <div class="row">
+        <div class="col text-center">
+            <h2 class="latest-news">Latest News</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="row visit-blog-row">
+                <div class="col-xl">
+                    <div class="row container">
+                        <h3 class="col-md-5 visit-text">Visit our Blog!</h3>
+                        <div class="col-md-3"></div>
+                        <a role="button" class="btn col-md-3 visit-blog-button kabanero-colored-button" href="/blog">Visit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row empty-row"></div>
+            
+            <div class="row boxed-row">
+                <div class="col-sm-8">
+                    <h3>Find us on Stack Overflow</h3>
+                </div>
+                <div class="col-sm-4">
+                    <a target="_blank" href="https://stackoverflow.com/questions/tagged/kabanero">
+                        <img src="/img/stackoverflow-orange.svg" class="img-fluid stackoverflow-img">
+                    </a>
+                </div>
+            </div>
+            <div class="row boxed-row">
+                <div class="col-sm-6">
+                    <h3 class="get-involved">Get Involved!</h3>
+                </div>
+                <div class="col-sm-6">
+                    <a role="button" class="btn kabanero-colored-button boxed-button" href="/contribute">Contribute to Kabanero</a>
+                </div>
+            </div>
+            <div class="row empty-row"></div>
+        </div>
+        <div class="col-xl-5 offset-xl-1" id="twitter-col">
+            <div class="row">
+                <a class="twitter-timeline" data-height="622.5" href="https://twitter.com/Kabaneroio">Tweets by KabaneroIO </a>
+            </div>
+            <div class="row boxed-row">
+                <div class="col-md-10">
+                    <div class="row">
+                        <h3 class="slack-text">Chat with us on Slack</h3>
+                    </div>
+                    <div class="row">
+                        <a href=https://slack-invite-ibm-cloud-tech.mybluemix.net/>
+                            <p class="slack-invite">Request an invite to the channel.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a target="_blank" href=https://ibm-cloud-tech.slack.com/messages/CJZCYTD0Q>
+                        <img src="/img/slack-icon-orange.svg" class="img-fluid slack-link">
+                    </a>
+                </div>
+            </div>
+            <div class="row boxed-row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="get-involved">See what we're cooking up next!</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a role="button" class="btn kabanero-colored-button boxed-button" href="/community">Join the Community</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </main>
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<footer>
+        <div id="footer_kabanero_background">
+            <div id="footer_top_container" class="footer_container container-fluid">
+                <div id="footer_project_container">
+                    <div id="kabanero_footer_logo">
+                        <img id="header_slack_img" src="/img/Kabanero_full_logo-white.svg" class="img-fluid" alt="Kabanero logo">
+                    </div>
+                    <p id="footer_project">an IBM open source project</p>
+                </div>
+                <div id="footer_round_links_container">
+                    <a id="footer_twitter_link" class="footer_round_btn" href="https://twitter.com/Kabaneroio" target="_blank" rel="noopener" aria-label="Twitter"></a>
+                    <a id="footer_github_link" class="footer_round_btn" href="https://github.com/kabanero-io" target="_blank" rel="noopener" aria-label="Github"></a>
+                    <a id="footer_stackoverflow_link" class="footer_round_btn" href="https://stackoverflow.com/questions/tagged/kabanero" target="_blank" rel="noopener" aria-label="Kabanero questions on Stack Overflow"></a>
+                    <a id="footer_slack_link" class="footer_round_btn" href="https://ibm-cloud-tech.slack.com/messages/CJZCYTD0Q" target="_blank" rel="noopener" aria-label="Kabanero Slack channel"></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer_bottom_container" class="footer_container container-fluid">
+            <div id="footer_bottom_left_section">
+                <p id="footer_copyright">&copy; Copyright IBM Corp. 2019</p>
+                <p class="vertical_bar">|</p>
+                <a id="footer_privacy_policy_link" href="https://www.ibm.com/privacy/" target="_blank" rel="noopener" class="left_footer_link">Privacy policy</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_license_link" href="https://github.com/kabanero-io/kabanero-website/blob/master/LICENSE" target="_blank" rel="noopener" class="left_footer_link">License</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_notice_link" href="https://github.com/kabanero-io/kabanero-website/blob/master/NOTICE.md" target="_blank" rel="noopener" class="left_footer_link">Notices</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_notice_link" href="https://github.com/kabanero-io/kabanero-website/blob/master/IBM-Trademark-Policy.md" target="_blank" rel="noopener" class="left_footer_link">IBM Trademark</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRE-LOADED IMAGES FOR ON HOVER BEHAVIOR -->
+    <div class="d-none hidden">
+        <img src="/img/header_github_icon_hover.svg">
+        <img src="/img/header_twitter_icon_hover.svg">
+    </div>
+
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+  <script src="/assets/home-d79161695fac432cc6d2cc8139057a38a69cc7abdad6fd4fcb7ba38eac7ff840.js" type="text/javascript"></script>
+
+  <script src="/assets/stacks-594da95fc0464a5515716d719841919369514f1a296b9e4ae99afbb024b8cbb5.js" type="text/javascript"></script>
+
+  <script src="/assets/twitterWidgets-42986e6026d10475e53f3528a543698697f2b7d6f755a1c38755c34284f29d73.js" type="text/javascript"></script>
+
+
+
+  <script src="/assets/header-d405bd49656b9225ee0406d4235bdb9d94577ed774cccd00b4bf2431152ab70b.js" type="text/javascript"></script>
+
+
+
+  </body>
+
+</html>

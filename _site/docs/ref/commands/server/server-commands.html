@@ -1,0 +1,214 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<!-- HTML structure for any overview documentation -->
+<div id="overview-content">
+    <div id="overview-title">
+        Server commands overview
+    </div>
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quickly interact with the Open Liberty server to complete actions like creating, starting, and stopping the server. Use the server commands for these basic operations and more.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="common-server-commands-and-usage-examples">Common server commands and usage examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can download released versions and nightly build artifacts of the Open Liberty server from:  <a href="https://www.openliberty.io/downloads/" class="bare">https://www.openliberty.io/downloads/</a>. Download to a directory of your choosing and then unzip. On Linux based systems you can use the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>unzip javaee8.zip</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After you unzip the server package, try some of the server commands, which you run from the <code><em>&lt;path_to_liberty&gt;</em>/bin</code> directory.</p>
+</div>
+<div class="sect2">
+<h3 id="create-a-server">Create a server</h3>
+<div class="paragraph">
+<p>Run the <a href="server-create.html">server create</a> command to create a server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server create myserver</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="start-the-server">Start the server</h3>
+<div class="paragraph">
+<p>Run the <a href="server-start.html">server start</a> command to start the server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server start myserver</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stop-the-server">Stop the server</h3>
+<div class="paragraph">
+<p>Run the <a href="server-stop.html">server stop</a> command to stop the server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server stop myserver</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="more-server-commands-and-usage-examples">More server commands and usage examples</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="debug-the-server">Debug the server</h3>
+<div class="paragraph">
+<p>Run the <a href="server-debug.html">server debug</a> command to debug applications that run on Open Liberty:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server debug myserver</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="create-and-save-a-snapshot-of-the-server">Create and save a snapshot of the server</h3>
+<div class="paragraph">
+<p>Run the <a href="server-dump.html">server dump</a> command to create a dump file of thread information from the <code>myserver</code> server in a ZIP file called <code>myserver.zip</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server dump myserver --archive="myserver.zip" --include=thread</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="get-information-about-available-server-command-actions-and-options">Get information about available server command actions and options</h3>
+<div class="paragraph">
+<p>Run the <a href="server-help.html">server help</a> command to get help with the server commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server help</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="create-a-snapshot-and-save-the-jvm-status-of-a-server">Create a snapshot and save the JVM status of a server</h3>
+<div class="paragraph">
+<p>Run the <a href="server-javadump.html">server javadump</a> command to capture the JVM status of the myserver server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server javadump myserver</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-all-open-liberty-server-instances">List all Open Liberty server instances</h3>
+<div class="paragraph">
+<p>Run the <a href="server-list.html">server list</a> command to list all the defined application servers in the Open Liberty installation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server list</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="package-the-server">Package the server</h3>
+<div class="paragraph">
+<p>Run the <a href="server-package.html">server package</a> command to package a server, its resources, and applications in a ZIP file that you can store, distribute, or deploy to a different location.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server package myserver --include=all</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pause-all-or-specific-inbound-work">Pause all or specific inbound work</h3>
+<div class="paragraph">
+<p>Run the <a href="server-pause.html">server pause</a> command to pause all pausable components on the myserver server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server pause myserver</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="resume-all-or-specific-inbound-work">Resume all or specific inbound work</h3>
+<div class="paragraph">
+<p>Run the <a href="server-resume.html">server resume</a> command to resume all paused components on the myserver server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server resume myserver</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="run-a-server-in-the-foreground">Run a server in the foreground</h3>
+<div class="paragraph">
+<p>Run the <a href="server-run.html">server run</a> command to start myserver as a foreground process:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server run myserver</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="get-version-information">Get version information</h3>
+<div class="paragraph">
+<p>Run the <a href="server-version.html">server version</a> command get the version of the server and the Java runtime environment:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server version myserver</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,409 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Understanding REST clients - Kabanero</title>
+  <meta name="description" content="Concept about RESTful services">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="/assets/kabanero-a66abe497fc85d9a6195f7a72f756a19d845fc7031fdbd11ae840b86de91de39.css">
+  <link rel="stylesheet" type="text/css" href="/assets/coderay-custom-2064fdd73da35b0a6084122db82d0f16112fecbaf174cf845382a2a8b1e3ffd1.css">
+
+  
+    <link rel="stylesheet" type="text/css" href="/assets/intro-fc382747c430bfcb51769d59b2598d635be7e002fdc7de106032e2f629ac7cdc.css">
+  
+    <link rel="stylesheet" type="text/css" href="/assets/doc-header-414d9fa148958c2723ba677d51410b0e2e04376a4d903064e9d9d17a2a229f63.css">
+  
+
+  
+
+  
+
+  <link rel="canonical" href="https://kabanero.io/docs/concept/col_RESTclients.html">
+  <link rel="alternate" type="application/rss+xml" title="Kabanero" href="/feed.xml">
+  <link href="https://fonts.googleapis.com/css?family=Asap:400,500" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="KabaneroIO" />
+  <meta name="twitter:title" content="Kabanero" />
+  <meta name="twitter:description" content="Concept about RESTful services" />
+  <meta name="twitter:image" content="https://kabanero.io/img/Kabanero_Logo_Colored.png" />
+
+  <meta name="google-site-verification" content="" />
+
+</head>
+  
+
+  <body>
+    
+    
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button id="navbar_responsive_button" class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" aria-label="Kabanero Home Page" class="navbar-brand" style="color: #FFFFFF">
+                    A
+                </a>
+                <div id="doc_title">
+                    <img src="/img/doc_header_title.svg" alt="Docs">
+                </div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="/guides">Guides</a>
+                    </li>
+                    <!-- Single button -->
+                    <li id="reference_dropdown_container" class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle reference_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Reference <span id="reference_caret" class="hidden-md hidden-lg"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="/docs/ref/javaee/">Java EE API</a></li>
+                                <li><a href="/docs/ref/microprofile/">MicroProfile API</a></li>
+                                <li><a href="/docs/ref/general/">General</a></li>
+                            </ul>
+                    </li>
+                </ul>
+                <div id="header_round_links_container" class="visible-xs">
+                    <a id="header_twitter_link" class="header_round_btn" href="https://twitter.com/Kabaneroio" target="_blank" rel="noopener" aria-label="Twitter"></a>
+                    <a id="header_stackoverflow_link" class="header_round_btn" href="https://stackoverflow.com/questions/tagged/kabanero" target="_blank" rel="noopener" aria-label="Kabanero questions on Stack Overflow"></a>
+                </div>
+            </div>
+            <!-- Add breadcrumb for all pages except /docs -->
+            
+            <div id="breadcrumb_row">
+                
+
+                <ol class="breadcrumb fluid-container">
+                    <li>
+                        <a href="/docs">Docs</a>
+                    </li>
+
+                    <!-- Javadocs -->
+                    
+                        <li>
+                            <a href="/guides">Guides</a>
+                        </li>
+                        <li class="active">Understanding REST clients</li>
+                    
+                </ol>
+            </div>
+            
+        
+        </div>
+    </nav>
+    <!-- Docs -->
+    <div class="hidden">
+        <img src="/img/small_logo_white.svg">
+        <img src="/img/github_navbar_hover.svg">
+    </div>
+</header>
+
+
+    <main aria-label="Content">
+
+      <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<section class="banner" aria-labelledby="intro_title">
+    <!-- Guide header section -->
+    <div id="intro_meta" class="sect1">
+        <h1 id="intro_title">Understanding REST clients</h1>
+        <div id="duration_container"></div>
+    </div>
+</section>
+<div id="background_container" class="gray_background">
+    <div class="centered_column">
+        <div class="row">
+            <!-- Entire guide section -->
+            <div id="intro_column" class="col-sm-12 position_relative">
+                <div id="intro_content">
+                    <!-- Guide content section -->
+                    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The acronym REST stands for Representational State Transfer, a methodology in which each unique URL is a representation of an object. You can access and manipulate the object using HTTP operations: GET to retrieve it, DELETE to delete it, POST to create it, or PUT to update it. REST is becoming more and more popular across many types of businesses because of its strong advantages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Lightweight - requests and responses can be short and require less bandwidth</p>
+</li>
+<li>
+<p>Human readable results</p>
+</li>
+<li>
+<p>Easy to build - there is less reliance on toolkits</p>
+</li>
+<li>
+<p>Concise - no need for additional messaging layer</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>However, REST is not ideal in all scenarios.  Other technologies, such as SOAP, WebSockets, etc. offer different feature sets. Which method is best depends on the needs of your client application and its users. For more information on REST vs. SOAP, consult a third-party text.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-you-can-do-with-restful-services">What you can do with RESTful services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following operations are supported by RESTful services:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>search and retrieve member and relationship data</p>
+</li>
+<li>
+<p>edit, add and delete member and relationship data</p>
+</li>
+<li>
+<p>undo recent put, merge or delete record operations</p>
+</li>
+<li>
+<p>compare and score member data</p>
+</li>
+<li>
+<p>merge and unmerge member records</p>
+</li>
+<li>
+<p>member, entity, attribute and field labels</p>
+</li>
+<li>
+<p>member attribute order</p>
+</li>
+<li>
+<p>member, entity and attribute display templates</p>
+</li>
+<li>
+<p>member and entity default composite views</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more details, read about the <a href="http://roy.gbiv.com/pubs/dissertation/rest_arch_style.htm">REST architectural style</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="microprofile-rest-client">MicroProfile REST client</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MicroProfile can be organized into three layers of functionality. The bottom layer represents REST services, the middle layer is for scaling towards hundreds of microservices, and the top layer contains tools to help you detect and diagnose issues.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/img/intro/layers.png" alt="layers">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="build-rest-services-with-java">Build REST services with Java</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The JAX-RS, CDI, JSON-B and JSON-P Java EE technologies provide the base for MicroProfile. If you&#8217;re new to Java EE and MicroProfile, this is a good place to start. JAX-RS is a Java API that allows you to build REST APIs by creating resource classes and adding appropriate annotations to create the necessary web endpoints. Context and Dependency Injection (CDI) provides objects with the dependencies that they need through the <code>@Inject</code> annotation rather than directly creating an object or finding them using a factory. JSON-P and JSON-B makes it easy to automatically serialize and deserialize Java objects to and from JSON.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="consuming-a-rest-service-with-type-safe-java">Consuming a REST service with type-safe Java</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MicroProfile Rest Client provides a type-safe approach for invoking REST services over HTTP. This API greatly simplifies the client-side API as defined by JAX-RS. MicroProfile Rest Client handles the communication between the client and service. You only need to define and annotate an interface that describes the actions that you need to perform on a REST resource. An implementation of this interface is automatically generated for you, and CDI can be used to inject your client into a dependent class.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="where-to-next">Where to next?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that you’ve seen the tools that MicroProfile provides for creating and managing microservices, you’re probably itching to try them out yourself! Check out the <a href="https://openliberty.io/guides/?search=MicroProfile&amp;key=tag">MicroProfile guides</a> written by our team. Your next project will be ready to launch in no time!</p>
+</div>
+</div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </main>
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<footer>
+        <div id="footer_kabanero_background">
+            <div id="footer_top_container" class="footer_container container-fluid">
+                <div id="footer_project_container">
+                    <span id="footer_kabanero">Kabanero</span>
+                    <p id="footer_project">an IBM open source project</p>
+                </div>
+                <div id="footer_round_links_container">
+                    <a id="footer_twitter_link" class="footer_round_btn" href="https://twitter.com/Kabaneroio" target="_blank" rel="noopener" aria-label="Twitter"></a>
+                    <a id="footer_github_link" class="footer_round_btn" href="https://github.com/kabanero-io" target="_blank" rel="noopener" aria-label="Github"></a>
+                    <a id="footer_stackoverflow_link" class="footer_round_btn" href="https://stackoverflow.com/questions/tagged/kabanero" target="_blank" rel="noopener" aria-label="Kabanero questions on Stack Overflow"></a>
+                    <a id="footer_slack_link" class="footer_round_btn" href="https://ibm-cloud-tech.slack.com/messages/kabanero" target="_blank" rel="noopener" aria-label="Kabanero Slack channel"></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer_bottom_container" class="footer_container container-fluid">
+            <div id="footer_bottom_left_section">
+                <p id="footer_copyright">&copy; Copyright IBM Corp. 2019</p>
+                <p class="vertical_bar">|</p>
+                <a id="footer_privacy_policy_link" href="https://www.ibm.com/privacy/" target="_blank" rel="noopener" class="left_footer_link">Privacy policy</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_license_link" href="https://github.com/kabanero-io/kabanero/blob/master/LICENSE" target="_blank" rel="noopener" class="left_footer_link">License</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_notice_link" href="https://github.com/kabanero-io/kabanero/blob/master/NOTICE" target="_blank" rel="noopener" class="left_footer_link">Notices</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_notice_link" href="https://github.com/kabanero-io/kabanero/blob/master/IBM-Trademark-Policy" target="_blank" rel="noopener" class="left_footer_link">IBM Trademark</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRE-LOADED IMAGES FOR ON HOVER BEHAVIOR -->
+    <div class="d-none hidden">
+        <img src="/img/header_github_icon_hover.svg">
+        <img src="/img/header_twitter_icon_hover.svg">
+    </div>
+
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+
+  <script src="/assets/intro-e8473b369d28ad180037bb5ad47d2fd54aa3807798ee26eaf6deac4d51858511.js" type="text/javascript"></script>
+
+
+
+  </body>
+
+</html>

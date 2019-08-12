@@ -1,0 +1,174 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="feature_title"> JSON Web Token 1.0
+    </div>
+
+    <!-- Feature content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This feature allows runtime to create JWT tokens.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling-this-feature">Enabling this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable the JSON Web Token 1.0 feature, add the following element declaration inside the featureManager element in your server.xml file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;feature&gt;jwt-1.0&lt;/feature&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="feature-configuration-elements">Feature configuration elements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/config/#administrator-role.html">administrator-role</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#authCache.html">authCache</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#authentication.html">authentication</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#authorization-roles.html">authorization-roles</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#basicRegistry.html">basicRegistry</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#classloading.html">classloading</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#jaasLoginContextEntry.html">jaasLoginContextEntry</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#jaasLoginModule.html">jaasLoginModule</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#jwtBuilder.html">jwtBuilder</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#jwtConsumer.html">jwtConsumer</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#library.html">library</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#ltpa.html">ltpa</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#quickStartSecurity.html">quickStartSecurity</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#trustAssociation.html">trustAssociation</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ibm-api-packages-provided-by-this-feature">IBM API packages provided by this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>com.ibm.websphere.security.jwt</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-this-feature-enables">Features that this feature enables</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#distributedMap-1.0.html">distributedMap-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#ssl-1.0.html">ssl-1.0</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-java-versions">Supported Java versions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>JavaSE-1.7</p>
+</li>
+<li>
+<p>JavaSE-1.8</p>
+</li>
+<li>
+<p>JavaSE-11.0</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-enable-this-feature">Features that enable this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#jwtSso-1.0.html">jwtSso-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpJwt-1.0.html">mpJwt-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpJwt-1.1.html">mpJwt-1.1</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#socialLogin-1.0.html">socialLogin-1.0</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="developing-a-feature-that-depends-on-this-feature">Developing a feature that depends on this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are developing a feature that depends on the JSON Web Token 1.0 feature, include the following item in the Subsystem-Content header in the feature manifest file for your new feature:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>com.ibm.websphere.appserver.jwt-1.0; type=&quot;osgi.subsystem.feature&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>

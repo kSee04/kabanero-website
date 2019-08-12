@@ -1,0 +1,318 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MicroProfile API - Kabanero</title>
+  <meta name="description" content="Kabanero delivers new and existing middleware tools to modernize your cloud journey.">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="/assets/kabanero-a66abe497fc85d9a6195f7a72f756a19d845fc7031fdbd11ae840b86de91de39.css">
+  <link rel="stylesheet" type="text/css" href="/assets/coderay-custom-2064fdd73da35b0a6084122db82d0f16112fecbaf174cf845382a2a8b1e3ffd1.css">
+
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/assets/javadocs-5c312157b6cb189c57b93652d7af014cce057262d0cd513993297522fad5dab8.css">
+  
+    <link rel="stylesheet" type="text/css" href="/assets/doc-header-414d9fa148958c2723ba677d51410b0e2e04376a4d903064e9d9d17a2a229f63.css">
+  
+
+  
+
+  <link rel="canonical" href="https://kabanero.io/docs/ref/microprofile/2.1/">
+  <link rel="alternate" type="application/rss+xml" title="Kabanero" href="/feed.xml">
+  <link href="https://fonts.googleapis.com/css?family=Asap:400,500" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="KabaneroIO" />
+  <meta name="twitter:title" content="Kabanero" />
+  <meta name="twitter:description" content="Kabanero delivers new and existing middleware tools to modernize your cloud journey." />
+  <meta name="twitter:image" content="https://kabanero.io/img/Kabanero_Logo_Colored.png" />
+
+  <meta name="google-site-verification" content="" />
+
+</head>
+  
+
+  <body>
+    
+    
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button id="navbar_responsive_button" class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" aria-label="Kabanero Home Page" class="navbar-brand" style="color: #FFFFFF">
+                    A
+                </a>
+                <div id="doc_title">
+                    <img src="/img/doc_header_title.svg" alt="Docs">
+                </div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="/guides">Guides</a>
+                    </li>
+                    <!-- Single button -->
+                    <li id="reference_dropdown_container" class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle reference_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Reference <span id="reference_caret" class="hidden-md hidden-lg"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="/docs/ref/javaee/">Java EE API</a></li>
+                                <li><a href="/docs/ref/microprofile/">MicroProfile API</a></li>
+                                <li><a href="/docs/ref/general/">General</a></li>
+                            </ul>
+                    </li>
+                </ul>
+                <div id="header_round_links_container" class="visible-xs">
+                    <a id="header_twitter_link" class="header_round_btn" href="https://twitter.com/Kabaneroio" target="_blank" rel="noopener" aria-label="Twitter"></a>
+                    <a id="header_stackoverflow_link" class="header_round_btn" href="https://stackoverflow.com/questions/tagged/kabanero" target="_blank" rel="noopener" aria-label="Kabanero questions on Stack Overflow"></a>
+                </div>
+            </div>
+            <!-- Add breadcrumb for all pages except /docs -->
+            
+            <div id="breadcrumb_row">
+                
+
+                <ol class="breadcrumb fluid-container">
+                    <li>
+                        <a href="/docs">Docs</a>
+                    </li>
+
+                    <!-- Javadocs -->
+                    
+                        <li>
+                            <a class="inactive_link">Reference</a>
+                        </li>
+                        <li class="active"> MicroProfile API </li>
+                        
+                        
+                            <span id="breadcrumb_line">|</span>
+                            <li id="breadcrumb_version">VERSION:</li>
+
+                            
+                            <li class="javadoc_version">
+                                
+                                    <a href="/docs/ref/microprofile/2%2E2/" onclick="versionClick(event)">2.2</a>
+                                
+
+                            </li>
+                            
+                            <li class="javadoc_version">
+                                
+                                    <a class="selected_javadoc__version">2.1</a>
+                                
+
+                            </li>
+                            
+                            <li class="javadoc_version">
+                                
+                                    <a href="/docs/ref/microprofile/2%2E0/" onclick="versionClick(event)">2.0</a>
+                                
+
+                            </li>
+                            
+                            <li class="javadoc_version">
+                                
+                                    <a href="/docs/ref/microprofile/1%2E4/" onclick="versionClick(event)">1.4</a>
+                                
+
+                            </li>
+                            
+                            <li class="javadoc_version">
+                                
+                                    <a href="/docs/ref/microprofile/1%2E3/" onclick="versionClick(event)">1.3</a>
+                                
+
+                            </li>
+                            
+                            <li class="javadoc_version">
+                                
+                                    <a href="/docs/ref/microprofile/1%2E2/" onclick="versionClick(event)">1.2</a>
+                                
+
+                            </li>
+                            
+                        
+
+                    
+                </ol>
+            </div>
+            
+        
+        </div>
+    </nav>
+    <!-- Docs -->
+    <div class="hidden">
+        <img src="/img/small_logo_white.svg">
+        <img src="/img/github_navbar_hover.svg">
+    </div>
+</header>
+
+
+    <main aria-label="Content">
+
+      <iframe id="javadoc_container" title="MicroProfile 2.1 application programming interface" style="width: 100%;" frameBorder="0" src="/docs/ref/javadocs/microprofile-2.1-javadoc/index.html?overview-summary.html">
+</iframe>
+
+
+    </main>
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<footer>
+        <div id="footer_kabanero_background">
+            <div id="footer_top_container" class="footer_container container-fluid">
+                <div id="footer_project_container">
+                    <span id="footer_kabanero">Kabanero</span>
+                    <p id="footer_project">an IBM open source project</p>
+                </div>
+                <div id="footer_round_links_container">
+                    <a id="footer_twitter_link" class="footer_round_btn" href="https://twitter.com/Kabaneroio" target="_blank" rel="noopener" aria-label="Twitter"></a>
+                    <a id="footer_github_link" class="footer_round_btn" href="https://github.com/kabanero-io" target="_blank" rel="noopener" aria-label="Github"></a>
+                    <a id="footer_stackoverflow_link" class="footer_round_btn" href="https://stackoverflow.com/questions/tagged/kabanero" target="_blank" rel="noopener" aria-label="Kabanero questions on Stack Overflow"></a>
+                    <a id="footer_slack_link" class="footer_round_btn" href="https://ibm-cloud-tech.slack.com/messages/kabanero" target="_blank" rel="noopener" aria-label="Kabanero Slack channel"></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer_bottom_container" class="footer_container container-fluid">
+            <div id="footer_bottom_left_section">
+                <p id="footer_copyright">&copy; Copyright IBM Corp. 2019</p>
+                <p class="vertical_bar">|</p>
+                <a id="footer_privacy_policy_link" href="https://www.ibm.com/privacy/" target="_blank" rel="noopener" class="left_footer_link">Privacy policy</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_license_link" href="https://github.com/kabanero-io/kabanero/blob/master/LICENSE" target="_blank" rel="noopener" class="left_footer_link">License</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_notice_link" href="https://github.com/kabanero-io/kabanero/blob/master/NOTICE" target="_blank" rel="noopener" class="left_footer_link">Notices</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_notice_link" href="https://github.com/kabanero-io/kabanero/blob/master/IBM-Trademark-Policy" target="_blank" rel="noopener" class="left_footer_link">IBM Trademark</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRE-LOADED IMAGES FOR ON HOVER BEHAVIOR -->
+    <div class="d-none hidden">
+        <img src="/img/header_github_icon_hover.svg">
+        <img src="/img/header_twitter_icon_hover.svg">
+    </div>
+
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+  <script src="/assets/javadocs-1b5127d75fc7d53b1e364e92b2378b153a597513e6be28133b2ed261e86039ac.js" type="text/javascript"></script>
+
+
+
+
+
+  </body>
+
+</html>

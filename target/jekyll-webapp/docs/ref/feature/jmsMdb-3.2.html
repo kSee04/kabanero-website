@@ -1,0 +1,111 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="feature_title"> JMS Message-Driven Beans 3.2
+    </div>
+
+    <!-- Feature content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This feature is superseded by mdb-3.2. Both features provide identical function; only the feature names are different. mdb-3.2 is the preferred feature name.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling-this-feature">Enabling this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable the JMS Message-Driven Beans 3.2 feature, add the following element declaration inside the featureManager element in your server.xml file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;feature&gt;jmsMdb-3.2&lt;/feature&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-this-feature-is-superseded-by">Features that this feature is superseded by</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#mdb-3.2.html">mdb-3.2</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="feature-configuration-elements">Feature configuration elements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/config/#classloading.html">classloading</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#transaction.html">transaction</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-this-feature-enables">Features that this feature enables</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#mdb-3.2.html">mdb-3.2</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-java-versions">Supported Java versions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>JavaSE-1.8</p>
+</li>
+<li>
+<p>JavaSE-11.0</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="developing-a-feature-that-depends-on-this-feature">Developing a feature that depends on this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are developing a feature that depends on the JMS Message-Driven Beans 3.2 feature, include the following item in the Subsystem-Content header in the feature manifest file for your new feature:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>com.ibm.websphere.appserver.jmsMdb-3.2; type=&quot;osgi.subsystem.feature&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>

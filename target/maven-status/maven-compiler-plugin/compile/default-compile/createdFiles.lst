@@ -1,0 +1,6 @@
+io/kabanero/website/ContainerInit.class
+io/kabanero/website/StickyRouting.class
+io/kabanero/website/TLSFilter.class
+io/kabanero/website/Constants.class
+io/kabanero/website/RedirectFilter.class
+io/kabanero/website/KabaneroEndpoints.class

@@ -1,0 +1,112 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<div id="content">
+    <div id="command_title">
+        
+        server list
+    </div>
+
+    <!-- Command content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lists all the defined application servers in the Open Liberty installation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="usage">Usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To list the servers in the Open Liberty installation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server list</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="syntax">Syntax</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Run the command from <code>/wlp/bin</code> directory. The result lists the defined servers in the user directory, <code>/wlp/usr</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server list</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="see-also">See also</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="server-version.html">server version</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exit-codes">Exit codes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following exit codes are available for the <code>server</code> command and the equivalent executable JAR file ws-server.jar:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">0</dt>
+<dd>
+<p>OK. 0 indicates successful completion of the requested operation. For server status, 0 indicates that the server is running.</p>
+</dd>
+<dt class="hdlist1">1</dt>
+<dd>
+<p>For server status, 1 indicates that the server is not running. For other operations, it indicates invocation of a redundant operation. For example, starting a started server or stopping a stopped server. This code might also be returned by JVM if invalid Java options are used.</p>
+</dd>
+<dt class="hdlist1">2</dt>
+<dd>
+<p>The server does not exist.</p>
+</dd>
+<dt class="hdlist1">3</dt>
+<dd>
+<p>An unsupported action was called on a running server. For example, the server is running when the package action is called.</p>
+</dd>
+<dt class="hdlist1">4</dt>
+<dd>
+<p>An unsupported action was called on a stopped server. For example, the server is not running when the dump action is called.</p>
+</dd>
+<dt class="hdlist1">5</dt>
+<dd>
+<p>Unknown server status. For example, the workarea directory is missing, or the Attach API fails to work.</p>
+</dd>
+<dt class="hdlist1">&gt;=20</dt>
+<dd>
+<p>Return codes greater than or equal to 20 indicate that an error occurred while performing the request. Messages are printed and captured in log files with more information about the error.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>

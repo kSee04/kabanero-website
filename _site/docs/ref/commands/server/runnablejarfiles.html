@@ -1,0 +1,214 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<div id="content">
+    <div id="command_title">
+        
+        Runnable JAR files
+    </div>
+
+    <!-- Command content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Runnable JAR files contain applications, server configurations, and a Liberty installation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="usage">Usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Run the JAR file by using the standard java command with the <code>-jar</code> option, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>java -jar package_file_name.jar</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the JAR file runs, it gets extracted to a temporary location and then the server runs in the foreground, started by the Liberty server run command. All output is written to stdout or stderr. By default, files are extracted to temporary locations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For Windows: <code>%HOMEPATH%/wlpExtract/&lt;jar file name&gt;_nnnnnnnnnnnnnnnnnnn</code></p>
+</li>
+<li>
+<p>For all other platforms: <code>$HOME/wlpExtract/&lt;jar file name&gt;_nnnnnnnnnnnnnnnnnnn</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can control the output location by using the <code>WLP_JAR_EXTRACT_ROOT</code> or <code>WLP_JAR_EXTRACT_DIR</code> environment variable (see [Environment variables]).</p>
+</div>
+<div class="paragraph">
+<p>To stop the Liberty server press Ctrl-C. When the Liberty server stops, the extraction directory is automatically deleted. If you stop the active shell in any other way, the extraction directory is not cleaned up automatically, you must clean it up manually.</p>
+</div>
+<div class="sect2">
+<h3 id="environment-variables">Environment variables</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Environment variable name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WLP_JAR_EXTRACT_ROOT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extracts JAR file to directory <code>${WLP_JAR_EXTRACT_ROOT}/&lt;jar file name&gt;_nnnnnnnnnnnnnnnnnnn</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WLP_JAR_EXTRACT_DIR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extracts JAR file to directory <code>${WLP_JAR_EXTRACT_DIR}</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WLP_OUTPUT_DIR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Writes Liberty server output files to directory <code>${WLP_OUTPUT_DIR}</code>. By default, server output is written to the extraction directory, which is deleted when the server stops. If you want to save the output, specify a durable output location by using the <code>WLP_OUTPUT_DIR</code> environment variable before you start the server.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WLP_JAR_DEBUG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Runs Liberty server by using <code>server debug &lt;server name&gt;</code> instead of <code>server run &lt;server name&gt;</code>. You can run the Liberty server in debug mode if you set the environment variable WLP_JAR_DEBUG before you start the server.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WLP_JAR_ENABLE_2PC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to value <code>true</code> to enable two-phase-commit transactions when the runnable JAR file runs.</p>
+<p class="tableblock">By default, two-phase commit commit transactions are disabled because the transaction logs are in the expansion directory and are deleted when the Liberty server is stopped. Therefore, transaction recovery is not possible.</p>
+<p class="tableblock">To enable two-phase commit, configure the transaction log to be in a durable location in the file system or an RDBMS and set the <code>WLP_JAR_ENABLE_2PC</code> environment variable.</p>
+<p class="tableblock">To configure the transaction log, use either the <code>transactionLogDirectory</code> or <code>dataSourceRef</code> attribute on the transaction element in your <code>server.xml</code> configuration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WLP_JAR_CYGWIN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to value true if you are running the JAR file under CYGWIN. This variable causes the Liberty server JAR runner to do UNIX-style file and process handling when it is running in the CYGWIN environment.</p>
+<p class="tableblock">Run under the bash shell, not <code>mintty</code>.</p>
+<p class="tableblock">Automatic extraction file deletion occurs only when you run under the bash shell. You can run under mintty, but you must delete the extraction files manually. Mintty does not forward the necessary signal that is required to trigger Java shutdown hooks.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="see-also">See also</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="server-package.html">server package</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exit-codes">Exit codes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following exit codes are available for the <code>server</code> command and the equivalent executable JAR file ws-server.jar:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">0</dt>
+<dd>
+<p>OK. 0 indicates successful completion of the requested operation. For server status, 0 indicates that the server is running.</p>
+</dd>
+<dt class="hdlist1">1</dt>
+<dd>
+<p>For server status, 1 indicates that the server is not running. For other operations, it indicates invocation of a redundant operation. For example, starting a started server or stopping a stopped server. This code might also be returned by JVM if invalid Java options are used.</p>
+</dd>
+<dt class="hdlist1">2</dt>
+<dd>
+<p>The server does not exist.</p>
+</dd>
+<dt class="hdlist1">3</dt>
+<dd>
+<p>An unsupported action was called on a running server. For example, the server is running when the package action is called.</p>
+</dd>
+<dt class="hdlist1">4</dt>
+<dd>
+<p>An unsupported action was called on a stopped server. For example, the server is not running when the dump action is called.</p>
+</dd>
+<dt class="hdlist1">5</dt>
+<dd>
+<p>Unknown server status. For example, the workarea directory is missing, or the Attach API fails to work.</p>
+</dd>
+<dt class="hdlist1">&gt;=20</dt>
+<dd>
+<p>Return codes greater than or equal to 20 indicate that an error occurred while performing the request. Messages are printed and captured in log files with more information about the error.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="server-process">Server process</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The server process is created by using the environment variables that are specified in the <code>server.env</code> file. The following JVM options are added by default:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>-javaagent:wlp/bin/tools/ws-javaagent.jar</code> option is required for trace, monitoring, incremental publishing of applications, and other server capabilities.</p>
+</li>
+<li>
+<p>The <code>-Xshareclasses</code> and related options enable the shared class cache on supported IBM J9 virtual machines.</p>
+</li>
+<li>
+<p>The cache directory is set to <code>WLP_OUTPUT_DIR/.classCache</code>.</p>
+</li>
+<li>
+<p>The <code>-XX:MaxPermSize</code> option increases the size of the permanent generation for HotSpot virtual machines before Java 8. You can set the <code>WLP_SKIP_MAXPERMSIZE</code> environment variable to <code>true</code> to avoid this default option, which avoids warnings such as:</p>
+<div class="literalblock">
+<div class="content">
+<pre>`Java HotSpot(TM) Client VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0`</pre>
+</div>
+</div>
+</li>
+<li>
+<p>The <code>-Djava.awt.headless=true</code> option avoids <code>java.awt.HeadlessException</code> on all platforms and focus-stealing problems on Mac OS X.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can use the <code>jvm.options</code> file to override these default JVM options or add more JVM options.</p>
+</div>
+<div class="paragraph">
+<p>By default, the <code>server</code> command sets the <code>umask</code> value to deny all permissions to <code>Other</code> users before the command runs the action. You can set the <code>WLP_SKIP_UMASK</code> environment variable to <code>true</code> in the <code>server.env</code> file to prevent the server command from modifying the umask. If you set the <code>WLP_SKIP_UMASK</code> environment variable, the server uses the <code>umask</code> value from the underlying process of the operation.</p>
+</div>
+<div class="paragraph">
+<p>The current working directory of the server process is set to the server output directory.</p>
+</div>
+<div class="paragraph">
+<p>The server command creates a process ID (PID) file when you start the server and deletes the PID file when you stop the server. By default, the PID file is set to <code>WLP_OUTPUT_DIR/.pid/serverName.pid</code>. The absolute path of the PID file can be changed by setting the <code>PID_FILE</code> environment variable, or the absolute path of the PID directory can be changed by setting the <code>PID_DIR</code> environment variable.</p>
+</div>
+<div class="paragraph">
+<p>The standard output and error from the server process is output to the foreground console for the <code>server run</code> and <code>server debug</code> commands and is redirected to the <code>WLP_OUTPUT_DIR/serverName/logs/console.log</code> file by default when you use the start action. The log name can be changed by setting the <code>LOG_FILE</code> environment variable, and the log directory can be changed by setting the <code>LOG_DIR</code> environment variable.</p>
+</div>
+<div class="paragraph">
+<p>The <code>server stop</code> command prevents new application requests from entering the server, which allows existing requests some time to complete. After that time, the remaining server components are stopped and the server process exits. Application requests that do not complete in the allowed time fail but their exact behavior depends on their activity when the server components are stopped.</p>
+</div>
+</div>
+</div>
+</div>

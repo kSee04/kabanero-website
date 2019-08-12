@@ -1,0 +1,255 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="feature_title"> Contexts and Dependency Injection 2.0
+    </div>
+
+    <!-- Feature content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Contexts and Dependency Injection 2.0 specification makes it easier to integrate Java EE components of different types. It provides a common mechanism to inject component such as EJBs or Managed Beans into other components such as JSPs or other EJBs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling-this-feature">Enabling this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable the Contexts and Dependency Injection 2.0 feature, add the following element declaration inside the featureManager element in your server.xml file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;feature&gt;cdi-2.0&lt;/feature&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="feature-configuration-elements">Feature configuration elements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/config/#application.html">application</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#applicationManager.html">applicationManager</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#applicationMonitor.html">applicationMonitor</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#cdi12.html">cdi12</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#classloading.html">classloading</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#javaPermission.html">javaPermission</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#library.html">library</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#transaction.html">transaction</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="standard-api-packages-provided-by-this-feature">Standard API packages provided by this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>javax.decorator</p>
+</li>
+<li>
+<p>javax.enterprise.context</p>
+</li>
+<li>
+<p>javax.enterprise.context.control</p>
+</li>
+<li>
+<p>javax.enterprise.context.spi</p>
+</li>
+<li>
+<p>javax.enterprise.event</p>
+</li>
+<li>
+<p>javax.enterprise.inject</p>
+</li>
+<li>
+<p>javax.enterprise.inject.literal</p>
+</li>
+<li>
+<p>javax.enterprise.inject.se</p>
+</li>
+<li>
+<p>javax.enterprise.inject.spi</p>
+</li>
+<li>
+<p>javax.enterprise.inject.spi.configurator</p>
+</li>
+<li>
+<p>javax.enterprise.util</p>
+</li>
+<li>
+<p>javax.inject</p>
+</li>
+<li>
+<p>javax.interceptor</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="third-party-api-packages-provided-by-this-feature">Third-party API packages provided by this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>org.jboss.weld.context</p>
+</li>
+<li>
+<p>org.jboss.weld.context.api</p>
+</li>
+<li>
+<p>org.jboss.weld.context.beanstore</p>
+</li>
+<li>
+<p>org.jboss.weld.context.bound</p>
+</li>
+<li>
+<p>org.jboss.weld.context.conversation</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-java-versions">Supported Java versions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>JavaSE-1.8</p>
+</li>
+<li>
+<p>JavaSE-11.0</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-enable-this-feature">Features that enable this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#appSecurity-3.0.html">appSecurity-3.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#javaeeClient-8.0.html">javaeeClient-8.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jsfContainer-2.3.html">jsfContainer-2.3</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#microProfile-1.2.html">microProfile-1.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#microProfile-1.3.html">microProfile-1.3</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#microProfile-1.4.html">microProfile-1.4</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#microProfile-2.0.html">microProfile-2.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#microProfile-2.1.html">microProfile-2.1</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#microProfile-2.2.html">microProfile-2.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpFaultTolerance-2.0.html">mpFaultTolerance-2.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpHealth-1.0.html">mpHealth-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpJwt-1.0.html">mpJwt-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpJwt-1.1.html">mpJwt-1.1</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpMetrics-1.0.html">mpMetrics-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpMetrics-1.1.html">mpMetrics-1.1</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpOpenTracing-1.0.html">mpOpenTracing-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpOpenTracing-1.1.html">mpOpenTracing-1.1</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpOpenTracing-1.2.html">mpOpenTracing-1.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#opentracing-1.0.html">opentracing-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#opentracing-1.1.html">opentracing-1.1</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#opentracing-1.2.html">opentracing-1.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#opentracing-1.3.html">opentracing-1.3</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#webProfile-8.0.html">webProfile-8.0</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="developing-a-feature-that-depends-on-this-feature">Developing a feature that depends on this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are developing a feature that depends on the Contexts and Dependency Injection 2.0 feature, include the following item in the Subsystem-Content header in the feature manifest file for your new feature:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>com.ibm.websphere.appserver.cdi-2.0; type=&quot;osgi.subsystem.feature&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>

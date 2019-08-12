@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".navbar-toggler").click(function(){$(".navbar-toggler").hasClass("collapsed")?$("body").css("overflow","hidden"):$("body").css("overflow","auto")})});

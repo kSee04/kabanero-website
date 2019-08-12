@@ -1,0 +1,401 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Codewind - Kabanero</title>
+  <meta name="description" content="Kabanero delivers new and existing middleware tools to modernize your cloud journey.">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="/assets/kabanero-a0c7ce816709f8f1f869c5f3e20ea18be786a38939ceb1f0e3b6bb4cbbce2caa.css">
+  <link rel="stylesheet" type="text/css" href="/assets/coderay-custom-2064fdd73da35b0a6084122db82d0f16112fecbaf174cf845382a2a8b1e3ffd1.css">
+
+  
+    <link rel="stylesheet" type="text/css" href="/assets/header-ddf98496c5b2f51dcd0076c26ea31bb8fe57ac8f2369b1f3ea9d588e6c4fbbe3.css">
+  
+
+  
+
+  
+
+  <link rel="canonical" href="http://0.0.0.0:4000/codewind/">
+  <link rel="alternate" type="application/rss+xml" title="Kabanero" href="/feed.xml">
+  <link href="https://fonts.googleapis.com/css?family=Asap:400,500" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="KabaneroIO" />
+  <meta name="twitter:title" content="Kabanero" />
+  <meta name="twitter:description" content="Kabanero delivers new and existing middleware tools to modernize your cloud journey." />
+  <meta name="twitter:image" content="https://kabanero.io/img/Kabanero_Logo_Colored.png" />
+
+  <meta name="google-site-verification" content="yI8NT1dwfSQj6BTL4sPakqn0rI8aBu1GCdxMZFh1aic" />
+
+</head>
+
+
+  <body>
+    
+    
+
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+		
+        <a href="/">
+            <img id="kabanero_nav_img" src="/img/Kabanero_logo_white.png" class="img-fluid" alt="Kabanero Nav image">
+        </a>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar-toggler-icon"></div>
+        </button>
+
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<div class="nav-container">
+
+                <a class="float_right_section" target="_blank" href="https://ibm-cloud-tech.slack.com/messages/CJZCYTD0Q">
+                    <img id="header_slack_img" src="/img/slack_Icon.svg" class="img-fluid" alt="slack logo">
+                </a>
+                <a class="float_right_section" target="_blank" href="https://stackoverflow.com/questions/tagged/kabanero">
+                    <img id="header_stackoverflow_img" src="/img/Header_StackO.svg" class="img-fluid" alt="stackoverflow logo">
+                </a>
+				<a class="float_right_section" target="_blank" href="https://github.com/kabanero-io">
+					<img id="header_github_img" src="/img/header_github_icon.svg" class="img-fluid" alt="github logo">
+				</a>
+				<a class="float_right_section" target="_blank" href="https://twitter.com/Kabaneroio">
+					<img id="header_twitter_img" src="/img/header_twitter_icon.svg" class="img-fluid" alt="twitter logo">
+                </a>
+
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/try-it">Try It</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="/collections">Collections</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <main aria-label="Content">
+
+      <!-- Codewind download -->
+<div id="intro-content" class="container">
+    <div class="row">
+        <div class="col">
+            <h1 id="introducing-eclipse-codewind">Introducing Eclipse Codewind</h1>
+
+            <p>Welcome to a technical preview of Eclipse Codewind, an evolution of Microclimate!</p>
+
+            <p>
+                Our first Microclimate release was over a year ago now, and we’ve talked to customers about what’s important to them and learned 
+                how to build tools for cloud native applications. As a result of this experience we’ve taken stock and decided to go in a new direction.
+            </p>
+
+            <p>
+                Two of the major decisions we’ve made are to switch to the powerful 
+                <a href="https://www.eclipse.org/che/">Eclipse Che</a> 
+                for our cloud-hosted IDE and evolve our CI/CD pipeline to be based on 
+                <a href="https://tekton.dev">Tekton Pipelines</a>. 
+                However, today is special for another reason - an initial preview of how we expect our support for local IDEs to evolve.
+            </p>
+
+            <p>
+                Developers expect high-quality open source tools to be available in their IDE of choice. To deliver on this, we’ve started putting the 
+                local Microclimate installation on a diet and contributed it to a new Eclipse project that we’ve helped to form: Eclipse Codewind. 
+                Today we’re happy to announce a first glimpse of what Codewind will look like. This preview shows the state of the codebase as it begins 
+                the move to Eclipse.
+            </p>
+
+            <p>
+                Why Eclipse? That’s easy - it’s because the Eclipse Foundation has a strong history and community around building vendor-agnostic 
+                developer tools. Eclipse also hosts two of the main IDEs that we plan to extend, making it a natural fit for Codewind.
+            </p>
+
+            <p>
+                The initial contribution for Codewind is coming from Microclimate. The Eclipse plug-in and Visual Studio Code extension are already 
+                open source and licensed under EPL 2. The common library that these depend on (a Docker container for now) has been relicensed under 
+                EPL 2 and is in the process of being legally cleared to release at Eclipse. All future releases of Codewind will come from the Eclipse 
+                codebase - we hope to see you there soon!
+            </p>
+
+            <h2 id="limitations">Limitations</h2>
+
+            <p>This preview is only available to use on Apple Mac (macOS).</p>
+
+            <p>
+                You must run a local installer (which installs almost 1 Gb of Docker containers - we’re working on it!) in addition to the 
+                IDE plug-in/extension.
+            </p>
+
+            <p>Projects must be located in <code class="highlighter-rouge">&lt;user&gt;/microclimate-workspace</code>.</p>
+
+            <h2 id="prerequisites">Prerequisites</h2>
+
+            <ul>
+                <li>Docker</li>
+                <li>Git</li>
+                <li>VS Code or Eclipse</li>
+                <li>
+                    Either uninstall Microclimate or prevent the Microclimate images from running. For more information about uninstalling Microclimate, see 
+                    <a href="https://microclimate.dev/uninstalllinuxmac">Uninstalling Microclimate on Linux or Mac/OS</a>.
+                </li>
+            </ul>
+
+            <h2 id="installing-codewind">Installing Codewind</h2>
+
+            <h4 id="downloading-the-release-binary-on-macos">Downloading the release binary on MacOS</h4>
+            <ol>
+                <li>
+                    Download 
+                    <a href="https://microclimate.dev/download/codewind" class="download-link trackdownload">codewind</a> 
+                    to a folder on your system.
+                </li>
+                <li>
+                    Make the <code class="highlighter-rouge">codewind</code> file usable with the 
+                    <code class="highlighter-rouge">chmod +x codewind</code> command.
+                </li>
+                <li>Enter the <code class="highlighter-rouge">./codewind install</code> command in the Terminal.</li>
+                <li>Run the <code class="highlighter-rouge">./codewind</code> command to see the available commands.</li>
+            </ol>
+
+            <h4 id="installing-the-vs-code-extension">Installing the VS Code extension</h4>
+            <ol>
+                <li>Install VS Code Version 1.27 or later.</li>
+                <li>
+                    Install the 
+                    <a href="https://marketplace.visualstudio.com/items?itemName=IBM.codewind">Codewind VS Code extension</a> 
+                    from the VS Code Marketplace or by searching for <code class="highlighter-rouge">Codewind</code> in the VS Code Extensions view.</li>
+                <li><strong>Optional:</strong> If you plan to work on Java projects, also install the Java Extension Pack.</li>
+                <li>
+                    After installing the extension, the Codewind view is available in the Explorer view and the Command Palette. 
+                    In the VS Code Explorer view group, open the Codewind view, or enter <code class="highlighter-rouge">Focus on Codewind</code> 
+                    into the Command Palette.
+                </li>
+            </ol>
+
+            <h4 id="installing-the-eclipse-plug-in">Installing the Eclipse plug-in</h4>
+            <ol>
+                <li>
+                    Download and install the 
+                    <a href="https://www.eclipse.org/downloads/packages/release/">latest Eclipse IDE for Java EE Developers</a> 
+                    or use an existing installation. The earliest supported version of the Eclipse IDE is Version 2019-03 (4.11).
+                </li>
+                <li>Obtain the plug-in in one of the following ways:
+                    <ul>
+                        <li>
+                            <a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=4638524" 
+                            title="Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client">
+                                <img src="https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" 
+                                alt="Drag this install button to your running Eclipse workspace. Note: You need to have the Eclipse Marketplace Client.">
+                            </a> 
+                            Drag this install button to your running Eclipse workspace. Note: You need to have the Eclipse Marketplace Client.</li>
+                        <li>
+                            Open the 
+                            <a href="https://marketplace.eclipse.org/content/codewind">Eclipse IDE</a> 
+                            and go to <strong>Help</strong>&gt;<strong>Eclipse Marketplace</strong>. 
+                            Then, search for <code class="highlighter-rouge">Codewind</code>. 
+                            Click <strong>Install</strong> and finish the wizard and accept licenses as prompted.
+                        </li>
+                    </ul>
+                </li>
+                <li>When the installation is complete, restart Eclipse.</li>
+                <li>
+                    Open the Codewind Explorer view. Go to <strong>Window</strong>&gt;<strong>Show View</strong>&gt;<strong>Other</strong> and type 
+                    <code class="highlighter-rouge">Codewind</code> in the filter field.
+                </li>
+                <li>Then, select <strong>Codewind Explorer</strong> and click <strong>Open</strong>.</li>
+            </ol>
+
+            <h2 id="getting-started">Getting started</h2>
+
+            <p>You can use Codewind to develop Node.js, Spring, and Liberty projects.</p>
+
+            <h4 id="getting-started-with-codewind-in-eclipse">Getting started with Codewind in Eclipse</h4>
+
+            <p>
+                <strong>Creating a project in Codewind</strong>
+            </p>
+
+            <ol>
+                <li>
+                    To create a project, right-click the <strong>Project Explorer</strong> view. When the menu appears, 
+                    click <strong>New</strong>&gt;<strong>Project</strong>.
+                </li>
+                <li>
+                    In the <strong>New Project</strong> window, click the <code class="highlighter-rouge">Codewind</code> 
+                    folder and <strong>New Codewind Project</strong>.
+                </li>
+                <li>Name your project, select a template, and click <strong>Finish</strong>.</li>
+            </ol>
+
+            <p>
+                <strong>Binding a project in Codewind</strong>
+            </p>
+
+            <ol>
+                <li>
+                    From the <strong>Project Explorer</strong> view, select a node. When the menu appears, 
+                    click <strong>Codewind</strong>&gt;<strong>Add Project</strong>.
+                </li>
+                <li>In the <strong>Add Project to Codewind</strong> window, select a langauge and, if applicable, a project type.</li>
+                <li>Click <strong>Finish</strong>. The project builds.</li>
+            </ol>
+
+            <h4 id="getting-started-with-codewind-in-vs-code">Getting started with Codewind in VS Code</h4>
+
+            <p>
+                In the <code class="highlighter-rouge">README</code> file on the <code class="highlighter-rouge">codewind-vscode</code> repository, 
+                see the <a href="https://github.com/microclimate-dev2ops/codewind-vscode#how-to-use"><strong>How to use</strong></a> section to begin 
+                working with Codewind in VS Code.
+            </p>
+
+            <h2 id="deactivating-codewind">Deactivating Codewind</h2>
+
+            <p>
+                With Codewind, you have a single connection that is either active or inactive. To deactivate Codewind, click the 
+                <strong>Codewind (Local)</strong> menu and click <strong>Deactivate Connection</strong>.
+            </p>
+        </div>
+	</div>
+</div>
+
+
+    </main>
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<footer>
+        <div id="footer_kabanero_background">
+            <div id="footer_top_container" class="footer_container container-fluid">
+                <div id="footer_project_container">
+                    <div id="kabanero_footer_logo">
+                        <img id="header_slack_img" src="/img/Kabanero_full_logo-white.svg" class="img-fluid" alt="Kabanero logo">
+                    </div>
+                    <p id="footer_project">an IBM open source project</p>
+                </div>
+                <div id="footer_round_links_container">
+                    <a id="footer_twitter_link" class="footer_round_btn" href="https://twitter.com/Kabaneroio" target="_blank" rel="noopener" aria-label="Twitter"></a>
+                    <a id="footer_github_link" class="footer_round_btn" href="https://github.com/kabanero-io" target="_blank" rel="noopener" aria-label="Github"></a>
+                    <a id="footer_stackoverflow_link" class="footer_round_btn" href="https://stackoverflow.com/questions/tagged/kabanero" target="_blank" rel="noopener" aria-label="Kabanero questions on Stack Overflow"></a>
+                    <a id="footer_slack_link" class="footer_round_btn" href="https://ibm-cloud-tech.slack.com/messages/CJZCYTD0Q" target="_blank" rel="noopener" aria-label="Kabanero Slack channel"></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer_bottom_container" class="footer_container container-fluid">
+            <div id="footer_bottom_left_section">
+                <p id="footer_copyright">&copy; Copyright IBM Corp. 2019</p>
+                <p class="vertical_bar">|</p>
+                <a id="footer_privacy_policy_link" href="https://www.ibm.com/privacy/" target="_blank" rel="noopener" class="left_footer_link">Privacy policy</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_license_link" href="https://github.com/kabanero-io/kabanero-website/blob/master/LICENSE" target="_blank" rel="noopener" class="left_footer_link">License</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_notice_link" href="https://github.com/kabanero-io/kabanero-website/blob/master/NOTICE.md" target="_blank" rel="noopener" class="left_footer_link">Notices</a>
+                <p class="vertical_bar">|</p>
+                <a id="footer_notice_link" href="https://github.com/kabanero-io/kabanero-website/blob/master/IBM-Trademark-Policy.md" target="_blank" rel="noopener" class="left_footer_link">IBM Trademark</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRE-LOADED IMAGES FOR ON HOVER BEHAVIOR -->
+    <div class="d-none hidden">
+        <img src="/img/header_github_icon_hover.svg">
+        <img src="/img/header_twitter_icon_hover.svg">
+    </div>
+
+
+    <!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+
+  <script src="/assets/header-d405bd49656b9225ee0406d4235bdb9d94577ed774cccd00b4bf2431152ab70b.js" type="text/javascript"></script>
+
+
+
+  </body>
+
+</html>

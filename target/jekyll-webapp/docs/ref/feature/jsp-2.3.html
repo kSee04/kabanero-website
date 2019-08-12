@@ -1,0 +1,177 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="feature_title"> JavaServer Pages 2.3
+    </div>
+
+    <!-- Feature content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This feature enables support for Java Server Pages (JSPs) that are written to the JSP 2.3 specification. This framework simplifies the construction of user interfaces. Enabling this feature also enables the Expression Language (EL) version 3.0 feature.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling-this-feature">Enabling this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable the JavaServer Pages 2.3 feature, add the following element declaration inside the featureManager element in your server.xml file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;feature&gt;jsp-2.3&lt;/feature&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="feature-configuration-elements">Feature configuration elements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/config/#jspEngine.html">jspEngine</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="standard-api-packages-provided-by-this-feature">Standard API packages provided by this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>javax.el</p>
+</li>
+<li>
+<p>javax.servlet.jsp</p>
+</li>
+<li>
+<p>javax.servlet.jsp.el</p>
+</li>
+<li>
+<p>javax.servlet.jsp.jstl.core</p>
+</li>
+<li>
+<p>javax.servlet.jsp.jstl.fmt</p>
+</li>
+<li>
+<p>javax.servlet.jsp.jstl.sql</p>
+</li>
+<li>
+<p>javax.servlet.jsp.jstl.tlv</p>
+</li>
+<li>
+<p>javax.servlet.jsp.tagext</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-this-feature-enables">Features that this feature enables</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#el-3.0.html">el-3.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#servlet-3.1.html">servlet-3.1</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#servlet-4.0.html">servlet-4.0</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-java-versions">Supported Java versions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>JavaSE-1.7</p>
+</li>
+<li>
+<p>JavaSE-1.8</p>
+</li>
+<li>
+<p>JavaSE-11.0</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-enable-this-feature">Features that enable this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#jsf-2.2.html">jsf-2.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jsf-2.3.html">jsf-2.3</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jsfContainer-2.2.html">jsfContainer-2.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jsfContainer-2.3.html">jsfContainer-2.3</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#webProfile-7.0.html">webProfile-7.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#webProfile-8.0.html">webProfile-8.0</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="developing-a-feature-that-depends-on-this-feature">Developing a feature that depends on this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are developing a feature that depends on the JavaServer Pages 2.3 feature, include the following item in the Subsystem-Content header in the feature manifest file for your new feature:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>com.ibm.websphere.appserver.jsp-2.3; type=&quot;osgi.subsystem.feature&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="spi-packages-provided-by-this-feature">SPI packages provided by this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>com.ibm.wsspi.jsp.taglib.config</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>

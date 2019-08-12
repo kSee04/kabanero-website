@@ -1,0 +1,68 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="general_title"> Connecting Tekton to GitHub
+    </div>
+
+    <!-- General reference content section -->
+    <div class="sect1">
+<h2 id="prerequisites">Prerequisites</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Working Tekton Pipeline with Dashboard - <a href="https://github.com/tektoncd/pipeline" class="bare">https://github.com/tektoncd/pipeline</a></p>
+</li>
+<li>
+<p>Tekton Experimental Webhook Extension - <a href="https://github.com/tektoncd/experimental/tree/master/webhooks-extension" class="bare">https://github.com/tektoncd/experimental/tree/master/webhooks-extension</a></p>
+</li>
+<li>
+<p>GitHub account - to connect the webhook to - <a href="https://github.com/" class="bare">https://github.com/</a></p>
+</li>
+<li>
+<p>Docker account - to push the built docker file to - <a href="https://www.docker.com/" class="bare">https://www.docker.com/</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="set-up-github">Set up GitHub</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you haven&#8217;t already, create a new GitHub repo for the desired project and have the code pushed to the GitHub repo. Copy the url of the GitHub repo as you will need that later. You will also need to create an Auth Token with webhook permissions: <a href="https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line" class="bare">https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="connect-tekton-to-github">Connect Tekton to GitHub</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now we can create a webhook. From the Tekton Dashboard, under "Extensions" in the left column, select webhooks-extension. Fill out the relevant information. In the access token section, you will need to use the <code>+</code> button and create a secret with the GitHub Auth token.
+<strong>NOTE:</strong> The <code>Name</code> field is used as part of the webhook callback URI. Therefore, the name must consist of valid URI characters.</p>
+</div>
+<div class="paragraph">
+<p>You can check to see if it was created correctly by going into your GitHub repo and, in the settings&#8594;webhooks tab, you should see a webhook with a green checkmark.</p>
+</div>
+<div class="paragraph">
+<p>You can now change some code in your local repo, commit and push to GitHub to see Tekton kick off a pipeline run.</p>
+</div>
+</div>
+</div>
+</div>

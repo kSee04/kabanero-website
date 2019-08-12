@@ -1,0 +1,226 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="general_title"> Using Liberty behind a proxy server
+    </div>
+
+    <!-- General reference content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you&#8217;ve written an app that requires login, it&#8217;s important to think about how to prevent fradulent access logins. Identify the IP address, and that piece of data can help track the clients where invalid logins originate. Developers are doing just that by implementing HTTP Forwarded and X-Forwarded header support to recognize a user&#8217;s IP address. The Forwarded and X-Forwarded-* header support in Open Liberty is the implementation of the Forwarded header spec <a href="https://tools.ietf.org/html/rfc7239">RFC 7239</a> and the de facto standard X-Forwarded-* header.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview">Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Forwarded header, or its de facto equivalent of X-Forwarded-*, has four parameters of
+interest. These parameters serve the following purpose:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+By
+</td>
+<td class="hdlist2">
+<p>identifies the user agent facing interface of the proxy</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+For
+</td>
+<td class="hdlist2">
+<p>identifies the node making the request to the proxy</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Host
+</td>
+<td class="hdlist2">
+<p>is the host request header field as received by the proxy</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Proto
+</td>
+<td class="hdlist2">
+<p>indicates what protocol was used to make the request</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>These headers can be used by intermediaries and origin servers to reveal the topology of the
+network that was involved for a specific request.</p>
+</div>
+<div class="paragraph">
+<p>The support of this feature allows programmers and applications to obtain the original client
+endpoint information that is presented by a proxy or a load balancer through Forwarded or X-Forwarded-*
+headers instead of the current TCP connected endpoint. This information can be retrieved by using
+certain servlet API calls or the NCSA Access Log.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Forwarded headers are favored over X-Forwarded-*, implying that when both types of headers are parsed by the HTTP Channel, only the
+values of the Forwarded header are accounted for.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuration-in-open-liberty">Configuration in Open Liberty</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use the Forwarded and X-Forwarded-* header support, you need to configure the server.xml with a new element called <code>&lt;remoteIp&gt;</code>.
+This can be enabled in two modes: one remoteIp for each endpoint or one common remoteIp for multiple endpoints.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using distinct remoteIp for each endpoint:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;featureManager&gt;
+        &lt;feature&gt;servlet-4.0&lt;/feature&gt;
+    &lt;/featureManager&gt;
+    &lt;httpEndpoint id="defaultHttpEndpoint"
+                        httpPort="9080"
+                        httpsPort="9443"&gt;
+               &lt;remoteIp proxies="&lt;regular_expression&gt;" useRemoteIpInAccessLog="&lt;true/false&gt;"/&gt;
+    &lt;/httpEndpoint&gt;</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using a common remoteIp:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;featureManager&gt;
+        &lt;feature&gt;servlet-4.0&lt;/feature&gt;
+    &lt;/featureManager&gt;
+    &lt;httpEndpoint id="defaultHttpEndpoint"
+                        httpPort="9080"
+                        httpsPort="9443"
+                        remoteIpRef="myRemoteIp"&gt;
+    &lt;/httpEndpoint&gt;
+    &lt;httpEndpoint id="otherHttpEndpoint"
+                        httpPort="9081"
+                        httpsPort="9444"
+                        remoteIpRef="myRemoteIp"&gt;
+    &lt;/httpEndpoint&gt;
+    &lt;remoteIp id="myRemoteIp" proxies="&lt;regular_expression&gt;" useRemoteIpInAccessLog="&lt;true/false&gt;"/&gt;</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Any of the servlet features supported by Liberty can be configured to retrieve either just the request protocol or also remote client IP, and the host.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="optional-configuration-of-remoteip">Optional configuration of <code>&lt;remoteIp&gt;</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>&lt;remoteIp&gt;</code> element can be optionally configured to provide a regular expression through a new configuration attribute called <strong>proxies</strong>. This attribute is used to declare trusted Proxy node identifiers that can be IPv4/IPv6 addresses, an obfuscated token (which always starts with the underscore character), or a token called 'unknown'. If the <code>&lt;httpEndpoint&gt;</code> is configured to use the headers, and no regular expression is provided, refer to the <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.liberty.autogen.base.doc/ae/rwlp_config_httpEndpoint.html">remoteIp</a> table to see the default regular expression.</p>
+</div>
+<div class="paragraph">
+<p>The <code>&lt;remoteIp&gt;</code> element can be optionally configured to provide a Boolean-type configuration attribute called <strong>useRemoteIpInAccessLog</strong>, defaulted to “false”. This means that by default, the NCSA Access Log (if configured) continues to reference the connected endpoint&#8217;s TCP information when recording remote IP, host, request protocol, or all three. When set to “true”, the NCSA Access Log (if configured) reflects the X-Forwarded-* or Forwarded headers when recording the remote client IP, host, the request protocol, or all three if the HTTP Channel verifies remote client information.</p>
+</div>
+<div class="paragraph">
+<p>Enable the <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/rwlp_http_accesslogs.html">HTTP Access Log</a> when <strong>useRemoteIpInAccessLog</strong> is set to “true”.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="forwarded-and-x-forwarded-headers-and-verification">Forwarded and X-Forwarded-* headers and verification</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A proxy or a load balancer can be configured to provide the Forwarded or X-Forwarded-* request headers. WebSphere Liberty will only utilize the Forwarded “for” (the “for” parameter can optionally include the port), “host” and “proto” parameters, or also X-Forwarded-For, X-Forwarded-Port, X-Forwarded-Host, and X-Forwarded-Proto headers. Note that the Forwarded “by” parameter or the X-Forwarded-By header is not used.</p>
+</div>
+<div class="paragraph">
+<p>When this feature is enabled, and either the Forwarded “for” parameter or X-Forwarded-For header is presented with a list of node identifiers (IP addresses), the HTTP Channel verifies the remote client information by processing the list in reversed ordering (right-to-left order). Each node identifier must match the regular expression pattern of trusted proxies. If each node identifier has been verified, then the first element in the list denotes the remote client IP address. As a result, the HTTP Channel is also able to verify the remote host and protocol information in the Forwarded or X-Forwarded-* headers (if and when present). This information is reflected in the ServletRequest API and in the NCSA Access Log.</p>
+</div>
+<div class="paragraph">
+<p>Verification or processing of these headers will only stop when a given node identifier is not trusted. In this case, the remote client IP address could not be verified. As a result, the ServletRequest APIs would return the values as if the feature was disabled. These values consider the presence of internal headers before returning the IP address of the remote TCP connection. Under this scenario, the NCSA Access Log records the information of the connected remote TCP connection only.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="affected-servlet-apis-and-ncsa-access-log-directives">Affected Servlet APIs and NCSA Access Log directives</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="/docs/ref/javaee/8/#class=javax/servlet/ServletRequest.html&amp;package=allclasses-frame.html">ServletRequest</a> Java API:
+* getRemoteAddr()
+* getRemoteHost()
+* getRemotePort()
+* getScheme()
+* isSecure()</p>
+</div>
+<div class="paragraph">
+<p>NCSA Access Log directives:
+* %a – Remote IP address
+* %h – Remote host name
+* %H – Request protocol</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/rwlp_http_accesslogs.html">HTTP access log settings</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These APIs and directives are only affected when the HTTP Channel is able to verify the remote client endpoint information.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>

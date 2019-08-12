@@ -1,0 +1,248 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+
+<div id="content">
+    <div id="command_title">
+        
+        server dump
+    </div>
+
+    <!-- Command content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Creates a snapshot of a server and saves the result into an archive file for further tuning and diagnosis.</p>
+</div>
+<div class="paragraph">
+<p>Useful for problem diagnosis of an Open Liberty server because the result file contains server configuration, log information, and details of the deployed applications in the work area directory. The command can be applied to either a running or a stopped server.</p>
+</div>
+<div class="paragraph">
+<p>For a running server, the following information is also included:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>State of each OSGi bundle in the server</p>
+</li>
+<li>
+<p>Wiring information for each OSGi bundle in the server</p>
+</li>
+<li>
+<p>Component list that is managed by the Service Component Runtime (SCR) environment</p>
+</li>
+<li>
+<p>Detailed information of each component from SCR</p>
+</li>
+<li>
+<p>Configuration administration data of each OSGi bundle</p>
+</li>
+<li>
+<p>Information about registered OSGi services</p>
+</li>
+<li>
+<p>Runtime environment settings such as Java virtual machine (JVM), heap size, operating system, thread information, and network status</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="syntax">Syntax</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Run the command from <code>path_to_liberty/bin</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server dump serverName [options]</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">serverName</dt>
+<dd>
+<p>The name of the server to run the command against (if no server is specified, a server called <code>defaultServer</code> is automatically created to run the command against).</p>
+</dd>
+<dt class="hdlist1">options</dt>
+<dd>
+<p>One or more optional parameters.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="usage">Usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To create a dump file of thread information from the <code>myserver</code> server in a ZIP archive called <code>myserver.zip</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server dump myserver --archive="myserver.zip" --include=thread</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To create a snapshot of the server status in a ZIP archive called <code>myserver.zip</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>server dump _servername_ --archive=myserver.zip --include=heap</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="options">Options</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Option</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--archive="path_to_the_target_archive_file"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies a target file for the package or dump operation. This path can be either a relative path, which is relative to the installation root directory of Open Liberty, or an absolute path. The default archive target is a compressed file with the server name, which is stored in the installation root directory. Use quotation marks if the value contains spaces. You can use this option for both package and dump operations.</p>
+<p class="tableblock">If you specify a <code>.jar</code> extension for your archive file name, the server command creates a new self-extracting archive file from which the Open Liberty server can be installed by using the <code>java</code> command.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">--include=diagnose_option,diagnose_option,&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the type of diagnostic information to be captured. The value of <code>--include</code> is a comma-delimited list, which can contain one or more of the following values:</p>
+<p class="tableblock">* <code>heap</code> is used to help diagnose the excessive memory consumption and memory leaks, which shows live objects in the memory and references between them. On IBM J9 virtual machines, the resulting file is named <code>heapdump.date.time.processID.sequenceNumber.phd</code>. On HotSpot virtual machines, the resulting file is named <code>java.date.time.processID.sequenceNumber.hprof</code>.
+* <code>system</code> is also used to help diagnose the excessive memory consumption and memory leaks, but they are also useful for finding defects in the virtual machine. These dumps are only supported on IBM J9 virtual machines. The resulting file is named <code>core.date.time.processID.sequenceNumber.dmp</code>.
+* <code>thread</code> is used to help diagnose hung threads, deadlocks, and can sometimes be used for diagnose excessive CPU issues. On IBM J9 virtual machines, the resulting file is named <code>javacore.date.time.processID.sequenceNumber.txt</code>. On HotSpot virtual machines, the resulting file is named <code>javadump.date.time.processID.sequenceNumber.txt</code>.</p>
+<p class="tableblock">The thread dump type is supported only when the server is running on the Java SDK. If the server is started with a JRE, an error is reported indicating that the server does not support the dump type. This restriction applies to HotSpot virtual machines only; the thread Java dump type is supported on any IBM JVM (JRE or SDK).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="see-also">See also</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="server-list.html">server list</a></p>
+</li>
+<li>
+<p><a href="server-javadump.html">server javadump</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exit-codes">Exit codes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following exit codes are available for the <code>server</code> command and the equivalent executable JAR file ws-server.jar:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">0</dt>
+<dd>
+<p>OK. 0 indicates successful completion of the requested operation. For server status, 0 indicates that the server is running.</p>
+</dd>
+<dt class="hdlist1">1</dt>
+<dd>
+<p>For server status, 1 indicates that the server is not running. For other operations, it indicates invocation of a redundant operation. For example, starting a started server or stopping a stopped server. This code might also be returned by JVM if invalid Java options are used.</p>
+</dd>
+<dt class="hdlist1">2</dt>
+<dd>
+<p>The server does not exist.</p>
+</dd>
+<dt class="hdlist1">3</dt>
+<dd>
+<p>An unsupported action was called on a running server. For example, the server is running when the package action is called.</p>
+</dd>
+<dt class="hdlist1">4</dt>
+<dd>
+<p>An unsupported action was called on a stopped server. For example, the server is not running when the dump action is called.</p>
+</dd>
+<dt class="hdlist1">5</dt>
+<dd>
+<p>Unknown server status. For example, the workarea directory is missing, or the Attach API fails to work.</p>
+</dd>
+<dt class="hdlist1">&gt;=20</dt>
+<dd>
+<p>Return codes greater than or equal to 20 indicate that an error occurred while performing the request. Messages are printed and captured in log files with more information about the error.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="server-process">Server process</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The server process is created by using the environment variables that are specified in the <code>server.env</code> file. The following JVM options are added by default:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>-javaagent:wlp/bin/tools/ws-javaagent.jar</code> option is required for trace, monitoring, incremental publishing of applications, and other server capabilities.</p>
+</li>
+<li>
+<p>The <code>-Xshareclasses</code> and related options enable the shared class cache on supported IBM J9 virtual machines.</p>
+</li>
+<li>
+<p>The cache directory is set to <code>WLP_OUTPUT_DIR/.classCache</code>.</p>
+</li>
+<li>
+<p>The <code>-XX:MaxPermSize</code> option increases the size of the permanent generation for HotSpot virtual machines before Java 8. You can set the <code>WLP_SKIP_MAXPERMSIZE</code> environment variable to <code>true</code> to avoid this default option, which avoids warnings such as:</p>
+<div class="literalblock">
+<div class="content">
+<pre>`Java HotSpot(TM) Client VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0`</pre>
+</div>
+</div>
+</li>
+<li>
+<p>The <code>-Djava.awt.headless=true</code> option avoids <code>java.awt.HeadlessException</code> on all platforms and focus-stealing problems on Mac OS X.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can use the <code>jvm.options</code> file to override these default JVM options or add more JVM options.</p>
+</div>
+<div class="paragraph">
+<p>By default, the <code>server</code> command sets the <code>umask</code> value to deny all permissions to <code>Other</code> users before the command runs the action. You can set the <code>WLP_SKIP_UMASK</code> environment variable to <code>true</code> in the <code>server.env</code> file to prevent the server command from modifying the umask. If you set the <code>WLP_SKIP_UMASK</code> environment variable, the server uses the <code>umask</code> value from the underlying process of the operation.</p>
+</div>
+<div class="paragraph">
+<p>The current working directory of the server process is set to the server output directory.</p>
+</div>
+<div class="paragraph">
+<p>The server command creates a process ID (PID) file when you start the server and deletes the PID file when you stop the server. By default, the PID file is set to <code>WLP_OUTPUT_DIR/.pid/serverName.pid</code>. The absolute path of the PID file can be changed by setting the <code>PID_FILE</code> environment variable, or the absolute path of the PID directory can be changed by setting the <code>PID_DIR</code> environment variable.</p>
+</div>
+<div class="paragraph">
+<p>The standard output and error from the server process is output to the foreground console for the <code>server run</code> and <code>server debug</code> commands and is redirected to the <code>WLP_OUTPUT_DIR/serverName/logs/console.log</code> file by default when you use the start action. The log name can be changed by setting the <code>LOG_FILE</code> environment variable, and the log directory can be changed by setting the <code>LOG_DIR</code> environment variable.</p>
+</div>
+<div class="paragraph">
+<p>The <code>server stop</code> command prevents new application requests from entering the server, which allows existing requests some time to complete. After that time, the remaining server components are stopped and the server process exits. Application requests that do not complete in the allowed time fail but their exact behavior depends on their activity when the server components are stopped.</p>
+</div>
+</div>
+</div>
+</div>

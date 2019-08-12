@@ -1,0 +1,114 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="feature_title"> JavaScript Object Notation Binding 1.0 via Bells
+    </div>
+
+    <!-- Feature content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Java API for JSON Binding (JSON-B) feature provides a standard for converting between Java objects and JavaScript Object Notation (JSON). The default JSON-B provider is configured via a &lt;bell&gt; which points at a library containing the JSON-B provider JAR file(s).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling-this-feature">Enabling this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable the JavaScript Object Notation Binding 1.0 via Bells feature, add the following element declaration inside the featureManager element in your server.xml file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;feature&gt;jsonbContainer-1.0&lt;/feature&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="standard-api-packages-provided-by-this-feature">Standard API packages provided by this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>javax.json.bind</p>
+</li>
+<li>
+<p>javax.json.bind.adapter</p>
+</li>
+<li>
+<p>javax.json.bind.annotation</p>
+</li>
+<li>
+<p>javax.json.bind.config</p>
+</li>
+<li>
+<p>javax.json.bind.serializer</p>
+</li>
+<li>
+<p>javax.json.bind.spi</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-this-feature-enables">Features that this feature enables</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#bells-1.0.html">bells-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jsonp-1.1.html">jsonp-1.1</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-java-versions">Supported Java versions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>JavaSE-1.8</p>
+</li>
+<li>
+<p>JavaSE-11.0</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="developing-a-feature-that-depends-on-this-feature">Developing a feature that depends on this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are developing a feature that depends on the JavaScript Object Notation Binding 1.0 via Bells feature, include the following item in the Subsystem-Content header in the feature manifest file for your new feature:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>com.ibm.websphere.appserver.jsonbContainer-1.0; type=&quot;osgi.subsystem.feature&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>

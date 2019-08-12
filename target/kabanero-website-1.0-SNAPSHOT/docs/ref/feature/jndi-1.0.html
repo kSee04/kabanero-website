@@ -1,0 +1,165 @@
+<!-----------------------------------------------------------------------------
+ -
+ - Copyright 2019 IBM Corporation and others.
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -     http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ ------------------------------------------------------------------------------>
+
+<div id="content">
+    <div id="feature_title"> Java Naming and Directory Interface 1.0
+    </div>
+
+    <!-- Feature content section -->
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This feature enables the use of Java Naming and Directory Interface (JNDI) to access server configured resources such as DataSources or JMS Connection Factories. It also allows access to Java primitives configured in the server as a jndiEntry.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling-this-feature">Enabling this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable the Java Naming and Directory Interface 1.0 feature, add the following element declaration inside the featureManager element in your server.xml file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;feature&gt;jndi-1.0&lt;/feature&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="feature-configuration-elements">Feature configuration elements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/config/#classloading.html">classloading</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#jndiEntry.html">jndiEntry</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#jndiObjectFactory.html">jndiObjectFactory</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#jndiReferenceEntry.html">jndiReferenceEntry</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#jndiURLEntry.html">jndiURLEntry</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/config/#library.html">library</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-java-versions">Supported Java versions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>JavaSE-1.7</p>
+</li>
+<li>
+<p>JavaSE-1.8</p>
+</li>
+<li>
+<p>JavaSE-11.0</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features-that-enable-this-feature">Features that enable this feature</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/docs/ref/feature/#appClientSupport-1.0.html">appClientSupport-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#batch-1.0.html">batch-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#distributedMap-1.0.html">distributedMap-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#ejbLite-3.2.html">ejbLite-3.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#ejbPersistentTimer-3.2.html">ejbPersistentTimer-3.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#javaeeClient-7.0.html">javaeeClient-7.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#javaeeClient-8.0.html">javaeeClient-8.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jdbc-4.0.html">jdbc-4.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jpaContainer-2.1.html">jpaContainer-2.1</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jpaContainer-2.2.html">jpaContainer-2.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jsfContainer-2.2.html">jsfContainer-2.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#jsfContainer-2.3.html">jsfContainer-2.3</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#managedBeans-1.0.html">managedBeans-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mdb-3.2.html">mdb-3.2</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#mpHealth-1.0.html">mpHealth-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#sessionDatabase-1.0.html">sessionDatabase-1.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#webProfile-7.0.html">webProfile-7.0</a></p>
+</li>
+<li>
+<p><a href="/docs/ref/feature/#webProfile-8.0.html">webProfile-8.0</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="developing-a-feature-that-depends-on-this-feature">Developing a feature that depends on this feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are developing a feature that depends on the Java Naming and Directory Interface 1.0 feature, include the following item in the Subsystem-Content header in the feature manifest file for your new feature:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>com.ibm.websphere.appserver.jndi-1.0; type=&quot;osgi.subsystem.feature&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
