@@ -19,4 +19,5 @@ jobs:
     - name: Build and test with eslint
       run: |
         bundle install
+        bundler install
         ./scripts/build_jekyll_maven.sh
