@@ -44,6 +44,19 @@
         <filter-name>TLSFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <filter>
+        <filter-name>CORS</filter-name>
+        <filter-class>com.thetransactioncompany.cors.autoreconf.AutoReconfigurableCORSFilter</filter-class>
+
+        <init-param>
+                <param-name>cors.allowOrigin</param-name>
+                <param-value>https://knative.dev/blog/index.xml</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CORS</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <!-- Set the secure flag and http-only for the session cookie -->
     <session-config>

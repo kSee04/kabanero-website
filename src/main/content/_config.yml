@@ -52,3 +52,6 @@ languages: ["en", "es", "de", "fr", "it", "ja", "ko","pt-BR", "zh-CN", "zh-TW"]
 default_lang: "en"
 exclude_from_localization: ["javascript", "images", "css"]
 parallel_localization: true
+
+feed:
+  path: https://medium.com/feed/appsody

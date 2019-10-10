@@ -49,6 +49,18 @@ $( document ).ready(function() {
     $(document.body).on('keydown', function() {
         document.body.classList.remove('using-mouse');
     });
+
+    let FEED_URL = "https://knative.dev/blog/index.xml";
+    $.get(FEED_URL, function (data) {
+        $(data).find("entry").each(function () { // or "item" or whatever suits your feed
+            var el = $(this);
+    
+            console.log("------------------------");
+            console.log("title      : " + el.find("title").text());
+            console.log("author     : " + el.find("author").text());
+            console.log("description: " + el.find("description").text());
+        });
+    });
 });
 
 $('.featured-model-box').click(function() {

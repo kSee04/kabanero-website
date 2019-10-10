@@ -668,6 +668,14 @@ seo-title: Kabanero
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    {% for post in site.feed %}
+                        <h2>{{post.title}}</h2>
+                        <p>{{post.feed_content}}</p>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
