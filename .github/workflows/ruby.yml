@@ -1,0 +1,23 @@
+name: Ruby
+
+on:
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Build and test with eslint
+      run: |
+        gem install bundler:2.0.2
+        bundle install
+        ./scripts/build_jekyll_maven.sh
